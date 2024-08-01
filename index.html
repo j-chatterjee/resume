@@ -18,6 +18,7 @@
         }
       </style>
     </noscript>
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.min.js"></script>
   </head>
   <body id="top">
     <header>
@@ -43,26 +44,60 @@
     </header>
     <div class="page-content">
       <div>
-<div class="profile-page">
-  <div class="wrapper">
-    <div class="page-header page-header-small" filter-color="green">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg')"></div>
-      <div class="container">
-        <div class="content-center">
-          <div class="cc-profile-image"><a href="#"><img src="images/joy.jpg" alt="Image"/></a></div>
-          <div class="h2 title">Joy Chattopadhyay</div>
-          <!--<p class="category text-white">IT, Cloud, DevOps</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="https://www.canva.com/design/DAGD1WV-yFo/lD043Rl0XUi3uF350tX1dA/view" rel="tooltip" data-aos-anchor="data-aos-anchor">View CV</a>-->
-          <p class="category text-white">IT, Cloud, DevOps</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a><a class="btn btn-primary" href="https://rxresu.me/chattopadhyayjoy7/joy-chattopadhyay" rel="tooltip" data-aos-anchor="data-aos-anchor">Download CV</a>
+        <div class="profile-page">
+          <div class="wrapper">
+            <div class="page-header page-header-small" filter-color="green">
+              <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg')"></div>
+              <div class="container">
+                <div class="content-center">
+                  <div class="cc-profile-image" data-aos="fade-in" data-aos-duration="1000"><a href="#"><img src="images/joy.jpg" alt="Joy Chattopadhyay"/></a></div>
+                  <div class="h2 title">Joy Chattopadhyay</div>
+                  <p class="category text-white"><span id="typewriter"></span></p>
+                  <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Hire Me</a>
+                  <a class="btn btn-primary" href="https://rxresu.me/chattopadhyayjoy7/joy-chattopadhyay" rel="tooltip" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Download CV</a>
+                </div>
+              </div>
+              <div class="section">
+                <div class="container">
+                  <div class="button-container">
+                    <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/joychatterjee132/" rel="tooltip" title="Follow me on Linkedin" data-aos="zoom-in" data-aos-duration="1000">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="section">
-        <div class="container">
-          <div class="button-container"><a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/joychatterjee132/" rel="tooltip" title="Follow me on Linkedin"><i class="fa fa-linkedin"></i></a></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.min.js"></script>
+        <script>
+          AOS.init();
+      
+          var typewriter = new Typewriter('#typewriter', {
+            loop: true,
+            delay: 75,
+            deleteSpeed: 50,
+          });
+      
+          typewriter
+            .typeString('Cloud Engineer')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('DevOps')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('System Administrator')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('Linux')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('Windows')
+            .pauseFor(1000)
+            .deleteAll()
+            .start();
+        </script>
 
 <!-- About section -->
 
