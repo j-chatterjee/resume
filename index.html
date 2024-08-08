@@ -16,26 +16,26 @@
           background-color: white;
           color: black;
       }
-
+    
       /* Dark mode styles */
       body.dark-mode {
-          background-color: #121212; /* Darker background color */
-          color: #e0e0e0; /* Lighter text color */
+          background-color: #121212;
+          color: #e0e0e0;
       }
-
+    
       body.dark-mode a {
           color: #FFFF00;
       }
-
+    
       body.dark-mode .navbar {
           background-color: #1f1f1f !important;
       }
-
+    
       body.dark-mode .navbar-brand,
       body.dark-mode .nav-link {
           color: #e0e0e0 !important;
       }
-
+    
       body.dark-mode section,
       body.dark-mode header,
       body.dark-mode footer,
@@ -44,13 +44,14 @@
           background-color: #121212;
           color: #e0e0e0;
       }
+    
       /* Ensure button text is visible in dark mode */
       body.dark-mode #toggle-dark-mode {
           background-color: #FFFF00;
           color: #121212;
       }
-
-        /* Styling for the dark mode icon */
+    
+      /* Styling for the dark mode icon */
       #dark-mode-icon {
           position: fixed;
           top: 10px;
@@ -58,42 +59,163 @@
           font-size: 24px;
           color: #007bff;
           cursor: pointer;
-          z-index: 10000; /* Ensure the icon is above other elements */
+          z-index: 10000;
           transition: color 0.3s ease;
       }
-
+    
       body.dark-mode #dark-mode-icon {
           color: #FFFF00;
       }
+    
       @media (max-width: 576px) {
-            #dark-mode-icon {
-                font-size: 20px;
-                top: 5px;
-                right: 5px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            #dark-mode-icon {
-                font-size: 22px;
-            }
-        }
-  </style>
-  <noscript>
-      <style type="text/css">
-          [data-aos] {
-              opacity: 1 !important;
-              transform: translate(0) scale(1) !important;
+          #dark-mode-icon {
+              font-size: 20px;
+              top: 5px;
+              right: 5px;
           }
-      </style>
-  <noscript>
-      <style type="text/css">
-          [data-aos] {
-              opacity: 1 !important;
-              transform: translate(0) scale(1) !important;
+      }
+    
+      @media (max-width: 768px) {
+          #dark-mode-icon {
+              font-size: 22px;
           }
-      </style>
-  </noscript>
+      }
+    
+      /* Floating Icon Style */
+      .floating-icon {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background-color: #007bff;
+          color: white;
+          border-radius: 50%;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+          cursor: pointer;
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px; /* Adjusted size */
+          height: 40px; /* Adjusted size */
+          transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+    
+      .floating-icon i {
+          font-size: 20px; /* Adjust icon size */
+      }
+    
+      .floating-icon:hover {
+          transform: scale(1.1);
+          background-color: #0056b3;
+      }
+    
+      body.dark-mode .floating-icon {
+          background-color: #FFFF00;
+          color: #121212;
+      }
+    
+      body.dark-mode .floating-icon:hover {
+          background-color: #e6e600;
+      }
+    
+      @media (max-width: 576px) {
+          .floating-icon {
+              bottom: 10px;
+              right: 10px;
+              width: 30px; /* Adjusted for smaller screens */
+              height: 30px; /* Adjusted for smaller screens */
+          }
+    
+          .floating-icon i {
+              font-size: 15px;
+          }
+      }
+    
+      /* Contact Form Hidden State */
+      .contact-form-hidden {
+          display: none;
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 100%;
+          max-width: 600px; /* Increased width */
+          max-height: 80vh;
+          z-index: 999;
+          opacity: 0;
+          transform: translateY(100%);
+          transition: transform 0.5s ease, opacity 0.5s ease;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+          background-color: white;
+          padding: 20px;
+          overflow-y: auto;
+      }
+    
+      /* Contact Form Visible State */
+      .contact-form-visible {
+          display: block;
+          opacity: 1;
+          transform: translateY(0);
+      }
+    
+      /* Responsive form elements */
+      .contact-form-visible .form-control,
+      .contact-form-hidden .form-control {
+          width: 100%;
+          margin-bottom: 15px;
+          padding: 10px;
+          font-size: 14px;
+      }
+    
+      .contact-form-visible button,
+      .contact-form-hidden button {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          background-color: #069012;
+          color: white;
+          border: none;
+          border-radius: 5px;
+      }
+    
+      body.dark-mode .contact-form-visible,
+      body.dark-mode .contact-form-hidden {
+          background-color: #1f1f1f;
+          color: #e0e0e0;
+      }
+    
+      body.dark-mode .contact-form-visible input,
+      body.dark-mode .contact-form-visible textarea {
+          background-color: #000000;
+          color: #e0e0e0;
+          border: 1px solid #555;
+      }
+      body.dark-mode .contact-form-visible button,
+      body.dark-mode .contact-form-hidden input,
+      body.dark-mode .contact-form-hidden textarea {
+          background-color: #000000;
+          color: #e0e0e0;
+          border: 1px solid #555;
+      }
+      body.dark-mode .contact-form-hidden button {
+          background-color: #069012;
+          color: #e0e0e0;
+          border: 1px solid #555;
+      }
+    
+      /* Adjustments for smaller screens */
+      @media (max-width: 576px) {
+          .contact-form-hidden,
+          .contact-form-visible {
+              bottom: 10px;
+              right: 10px;
+              width: 90%;
+              max-width: 400px; /* Adjusted for smaller screens */
+              padding: 15px;
+          }
+      }
+    </style>           
+        
 </head>
 <body id="top">
     <header>
@@ -115,7 +237,7 @@
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#certificate">Certificates</a></li>
                             <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li> -->
                             <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
+                            <!--<li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -1093,7 +1215,13 @@
 
 <!-- Contact form -->
 
-<div class="section" id="contact">
+<!-- Floating Icon -->
+<div class="floating-icon" id="contactIcon">
+  <i class="fa fa-envelope"></i>
+</div>
+
+<!-- Contact Form (Hidden by default) -->
+<div class="section contact-form-hidden" id="contactForm">
   <div class="cc-contact-information" style="background-image: url('images/staticmap.jpg')">
     <div class="container">
       <div class="cc-contact">
@@ -1102,10 +1230,10 @@
             <div class="card mb-0" data-aos="zoom-in">
               <div class="h4 text-center title">Contact Me</div>
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="card-body">
                     <form action="https://formspree.io/f/xgejoboy" method="POST">
-                      <div class="p pb-3"><strong>Feel free to contact me </strong></div>
+                      <!--<div class="p pb-3"><strong>Feel free to contact me </strong></div>-->
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
@@ -1147,14 +1275,12 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <div class="card-body">
+                  <!--<div class="card-body">
                     <p class="mb-0"><strong>Address </strong></p>
                     <p class="pb-2">Asansol, West Bengal, India</p>
-                    <!-- <p class="mb-0"><strong>Phone</strong></p>
-                    <p class="pb-2">+************</p> -->
                     <p class="mb-0"><strong>Email</strong></p>
                     <p>joyc.chatterjee13@gmail.com</p>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -1163,8 +1289,9 @@
       </div>
     </div>
   </div>
-</div></div>
-    </div>
+</div>
+
+
     <footer class="footer">
       <!-- <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div> -->
       <div class="h4 title text-center">Joy Chattopadhyay</div>
@@ -1175,11 +1302,12 @@
     <script>
       // Get the dark mode icon
       const darkModeIcon = document.getElementById('dark-mode-icon');
-
-      // Add an event listener to the icon
+    
+      // Add an event listener to the dark mode icon
       darkModeIcon.addEventListener('click', () => {
           // Toggle the 'dark-mode' class on the body
           document.body.classList.toggle('dark-mode');
+    
           // Change the icon based on the current mode
           if (document.body.classList.contains('dark-mode')) {
               darkModeIcon.classList.remove('fa-moon-o');
@@ -1189,7 +1317,17 @@
               darkModeIcon.classList.add('fa-moon-o');
           }
       });
-  </script>
+    
+      // Get the floating icon and contact form elements
+      const contactIcon = document.getElementById('contactIcon');
+      const contactForm = document.getElementById('contactForm');
+    
+      // Add an event listener to the floating icon
+      contactIcon.addEventListener('click', () => {
+          // Toggle the 'contact-form-visible' class on the contact form
+          contactForm.classList.toggle('contact-form-visible');
+      });
+    </script>    
     <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
     <script src="js/core/popper.min.js?ver=1.1.0"></script>
     <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
