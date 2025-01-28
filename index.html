@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,301 +10,93 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <style>
-      /* Default light mode styles */
-      body {
-          background-color: white;
-          color: black;
-      }
-    
-      /* Dark mode styles */
-      body.dark-mode {
-          background-color: #121212;
-          color: #e0e0e0;
-      }
-    
-      body.dark-mode a {
-          color: #FFFF00;
-      }
-    
-      body.dark-mode .navbar {
-          background-color: #1f1f1f !important;
-      }
-    
-      body.dark-mode .navbar-brand,
-      body.dark-mode .nav-link {
-          color: #e0e0e0 !important;
-      }
-    
-      body.dark-mode section,
-      body.dark-mode header,
-      body.dark-mode footer,
-      body.dark-mode div,
-      body.dark-mode p {
-          background-color: #121212;
-          color: #e0e0e0;
-      }
-    
-      /* Ensure button text is visible in dark mode */
-      body.dark-mode #toggle-dark-mode {
-          background-color: #FFFF00;
-          color: #121212;
-      }
-    
-      /* Styling for the dark mode icon */
-      #dark-mode-icon {
-          position: fixed;
-          top: 10px;
-          right: 10px;
-          font-size: 24px;
-          color: #007bff;
-          cursor: pointer;
-          z-index: 10000;
-          transition: color 0.3s ease;
-      }
-    
-      body.dark-mode #dark-mode-icon {
-          color: #FFFF00;
-      }
-    
-      @media (max-width: 576px) {
-          #dark-mode-icon {
-              font-size: 20px;
-              top: 5px;
-              right: 5px;
-          }
-      }
-    
-      @media (max-width: 768px) {
-          #dark-mode-icon {
-              font-size: 22px;
-          }
-      }
-    
-      /* Floating Icon Style */
-      .floating-icon {
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background-color: #007bff;
-          color: white;
-          border-radius: 50%;
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-          cursor: pointer;
-          z-index: 1000;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 40px; /* Adjusted size */
-          height: 40px; /* Adjusted size */
-          transition: transform 0.3s ease, background-color 0.3s ease;
-      }
-    
-      .floating-icon i {
-          font-size: 20px; /* Adjust icon size */
-      }
-    
-      .floating-icon:hover {
-          transform: scale(1.1);
-          background-color: #0056b3;
-      }
-    
-      body.dark-mode .floating-icon {
-          background-color: #FFFF00;
-          color: #121212;
-      }
-    
-      body.dark-mode .floating-icon:hover {
-          background-color: #e6e600;
-      }
-    
-      @media (max-width: 576px) {
-          .floating-icon {
-              bottom: 10px;
-              right: 10px;
-              width: 30px; /* Adjusted for smaller screens */
-              height: 30px; /* Adjusted for smaller screens */
-          }
-    
-          .floating-icon i {
-              font-size: 15px;
-          }
-      }
-    
-      /* Contact Form Hidden State */
-      .contact-form-hidden {
-          display: none;
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          width: 100%;
-          max-width: 600px; /* Increased width */
-          max-height: 80vh;
-          z-index: 999;
-          opacity: 0;
-          transform: translateY(100%);
-          transition: transform 0.5s ease, opacity 0.5s ease;
-          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-          border-radius: 10px;
-          background-color: white;
-          padding: 20px;
-          overflow-y: auto;
-      }
-    
-      /* Contact Form Visible State */
-      .contact-form-visible {
-          display: block;
-          opacity: 1;
-          transform: translateY(0);
-      }
-    
-      /* Responsive form elements */
-      .contact-form-visible .form-control,
-      .contact-form-hidden .form-control {
-          width: 100%;
-          margin-bottom: 15px;
-          padding: 10px;
-          font-size: 14px;
-      }
-    
-      .contact-form-visible button,
-      .contact-form-hidden button {
-          width: 100%;
-          padding: 10px;
-          font-size: 16px;
-          background-color: #069012;
-          color: white;
-          border: none;
-          border-radius: 5px;
-      }
-    
-      body.dark-mode .contact-form-visible,
-      body.dark-mode .contact-form-hidden {
-          background-color: #1f1f1f;
-          color: #e0e0e0;
-      }
-    
-      body.dark-mode .contact-form-visible input,
-      body.dark-mode .contact-form-visible textarea {
-          background-color: #000000;
-          color: #e0e0e0;
-          border: 1px solid #555;
-      }
-      body.dark-mode .contact-form-visible button,
-      body.dark-mode .contact-form-hidden input,
-      body.dark-mode .contact-form-hidden textarea {
-          background-color: #000000;
-          color: #e0e0e0;
-          border: 1px solid #555;
-      }
-      body.dark-mode .contact-form-hidden button {
-          background-color: #069012;
-          color: #e0e0e0;
-          border: 1px solid #555;
-      }
-    
-      /* Adjustments for smaller screens */
-      @media (max-width: 576px) {
-          .contact-form-hidden,
-          .contact-form-visible {
-              bottom: 10px;
-              right: 10px;
-              width: 90%;
-              max-width: 400px; /* Adjusted for smaller screens */
-              padding: 15px;
-          }
-      }
-    </style>           
-        
-</head>
-<body id="top">
+    <noscript>
+      <style type="text/css">
+        [data-aos] {
+            opacity: 1 !important;
+            transform: translate(0) scale(1) !important;
+        }
+      </style>
+    </noscript>
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.min.js"></script>
+  </head>
+  <body id="top">
     <header>
-        <div class="profile-page sidebar-collapse">
-            <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
-                <div class="container">
-                    <div class="navbar-translate">
-                        <a class="navbar-brand" href="#" rel="tooltip">Joy Chattopadhyay</a>
-                        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-bar bar1"></span>
-                            <span class="navbar-toggler-bar bar2"></span>
-                            <span class="navbar-toggler-bar bar3"></span>
-                        </button>
-                    </div>
-                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <ul class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#certificate">Certificates</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li> -->
-                            <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
-                            <!--<li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <i id="dark-mode-icon" class="fa fa-moon-o" aria-hidden="true"></i>
-    <div class="page-content">
-        <div>
-            <div class="profile-page">
-                <div class="wrapper">
-                    <div class="page-header page-header-small" filter-color="green">
-                        <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg')"></div>
-                        <div class="container">
-                            <div class="content-center">
-                                <div class="cc-profile-image" data-aos="fade-in" data-aos-duration="1000">
-                                    <a href="#"><img src="images/joy.jpg" alt="Joy Chattopadhyay"/></a>
-                                </div>
-                                <div class="h2 title">Joy Chattopadhyay</div>
-                                <p class="category text-white"><span id="typewriter"></span></p>
-                                <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Hire Me</a>
-                                <a class="btn btn-primary" href="https://rxresu.me/chattopadhyayjoy7/joy-chattopadhyay" rel="tooltip" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Download CV</a>
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div class="container">
-                                <div class="button-container">
-                                    <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/joychatterjee132/" rel="tooltip" title="Follow me on Linkedin" data-aos="zoom-in" data-aos-duration="1000">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="profile-page sidebar-collapse">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
+          <div class="container">
+            <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip">Joy Chattopadhyay</a>
+              <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
             </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navigation">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#certificate">Certificates</a></li>
+                <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li> -->
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="page-content">
+      <div>
+        <div class="profile-page">
+          <div class="wrapper">
+            <div class="page-header page-header-small" filter-color="green">
+              <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg')"></div>
+              <div class="container">
+                <div class="content-center">
+                  <div class="cc-profile-image" data-aos="fade-in" data-aos-duration="1000"><a href="#"><img src="images/joy.jpg" alt="Joy Chattopadhyay"/></a></div>
+                  <div class="h2 title">Joy Chattopadhyay</div>
+                  <p class="category text-white"><span id="typewriter"></span></p>
+                  <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Hire Me</a>
+                  <a class="btn btn-primary" href="https://rxresu.me/chattopadhyayjoy7/joy-chattopadhyay" rel="tooltip" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Download CV</a>
+                </div>
+              </div>
+              <div class="section">
+                <div class="container">
+                  <div class="button-container">
+                    <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/joychatterjee132/" rel="tooltip" title="Follow me on Linkedin" data-aos="zoom-in" data-aos-duration="1000">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
         <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.min.js"></script>
         <script>
-            AOS.init();
-
-            var typewriter = new Typewriter('#typewriter', {
-                loop: true,
-                delay: 75,
-                deleteSpeed: 50,
-            });
-
-            typewriter
-                .typeString('Cloud Engineer')
-                .pauseFor(1000)
-                .deleteAll()
-                .typeString('DevOps')
-                .pauseFor(1000)
-                .deleteAll()
-                .typeString('System Administrator')
-                .pauseFor(1000)
-                .deleteAll()
-                .typeString('Linux')
-                .pauseFor(1000)
-                .deleteAll()
-                .typeString('Windows')
-                .pauseFor(1000)
-                .deleteAll()
-                .start();
-                
+          AOS.init();
+      
+          var typewriter = new Typewriter('#typewriter', {
+            loop: true,
+            delay: 75,
+            deleteSpeed: 50,
+          });
+      
+          typewriter
+            .typeString('Cloud Engineer')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('DevOps')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('System Administrator')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('Linux')
+            .pauseFor(1000)
+            .deleteAll()
+            .typeString('Windows')
+            .pauseFor(1000)
+            .deleteAll()
+            .start();
         </script>
 
 <!-- About section -->
@@ -764,7 +556,7 @@
                       <p>Golang</p>
                     </figcaption>
                   </figure></a></div>
-              <!--<div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
+              <!-- <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
                   <figure class="cc-effect"><img src="images/photography-3.jpg" alt="Image"/>
                     <figcaption>
                       <div class="h4">Wedding Photoshoot</div>
@@ -789,8 +581,8 @@
                   </figure></a></div>
             </div>
           </div>
-        </div>
-      </div> -->
+        </div>-->
+      </div>  
     </div>
   </div>
 </div>
@@ -1095,6 +887,9 @@
           <li data-target="#cc-Indicators" data-slide-to="2"></li>
           <li data-target="#cc-Indicators" data-slide-to="3"></li>
           <li data-target="#cc-Indicators" data-slide-to="4"></li>
+          <li data-target="#cc-Indicators" data-slide-to="5"></li>
+          <li data-target="#cc-Indicators" data-slide-to="6"></li>
+          <li data-target="#cc-Indicators" data-slide-to="7"></li>
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -1207,6 +1002,34 @@
               </div>
             </div>
           </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/bl.png" alt="Image"/>
+                <div class="h5 pt-2">BharatLoan</div>
+                <!-- <p class="category">CEO / Creativem</p> -->
+              </div>
+              <div class="col-lg-10 col-md-9">
+                <!-- <p>Design and development of a Business Portal for a state-level client in the US. </p> -->
+                  <div class="h5 mb-4 title">Responsibilities</div>
+                  <p>Create infrastructure in AWS for all environment. 24X7 monitoring of application. Troubleshoot & resolving infra issues. Weekly and Monthly maintenance of production servers.
+                    </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/lp.png" alt="Image"/>
+                <div class="h6 pt-2">LendingPlate</div>
+                <!-- <p class="category">CEO / Creativem</p> -->
+              </div>
+              <div class="col-lg-10 col-md-9">
+                <!-- <p>Design and development of a Business Portal for a state-level client in the US. </p> -->
+                  <div class="h5 mb-4 title">Responsibilities</div>
+                  <p>Create infrastructure in AWS for all environment. 24X7 monitoring of application. Troubleshoot & resolving infra issues. Weekly and Monthly maintenance of production servers.
+                    </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1215,13 +1038,7 @@
 
 <!-- Contact form -->
 
-<!-- Floating Icon -->
-<div class="floating-icon" id="contactIcon">
-  <i class="fa fa-envelope"></i>
-</div>
-
-<!-- Contact Form (Hidden by default) -->
-<div class="section contact-form-hidden" id="contactForm">
+<div class="section" id="contact">
   <div class="cc-contact-information" style="background-image: url('images/staticmap.jpg')">
     <div class="container">
       <div class="cc-contact">
@@ -1230,10 +1047,10 @@
             <div class="card mb-0" data-aos="zoom-in">
               <div class="h4 text-center title">Contact Me</div>
               <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                   <div class="card-body">
                     <form action="https://formspree.io/f/xgejoboy" method="POST">
-                      <!--<div class="p pb-3"><strong>Feel free to contact me </strong></div>-->
+                      <div class="p pb-3"><strong>Feel free to contact me </strong></div>
                       <div class="row mb-3">
                         <div class="col">
                           <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
@@ -1275,12 +1092,14 @@
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <!--<div class="card-body">
+                  <div class="card-body">
                     <p class="mb-0"><strong>Address </strong></p>
                     <p class="pb-2">Asansol, West Bengal, India</p>
+                    <!-- <p class="mb-0"><strong>Phone</strong></p>
+                    <p class="pb-2">+************</p> -->
                     <p class="mb-0"><strong>Email</strong></p>
                     <p>joyc.chatterjee13@gmail.com</p>
-                  </div>-->
+                  </div>
                 </div>
               </div>
             </div>
@@ -1289,9 +1108,8 @@
       </div>
     </div>
   </div>
-</div>
-
-
+</div></div>
+    </div>
     <footer class="footer">
       <!-- <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div> -->
       <div class="h4 title text-center">Joy Chattopadhyay</div>
@@ -1299,35 +1117,6 @@
         <p>&copy; Joy Chattopadhyay. All rights reserved.</p>
       </div>
     </footer>
-    <script>
-      // Get the dark mode icon
-      const darkModeIcon = document.getElementById('dark-mode-icon');
-    
-      // Add an event listener to the dark mode icon
-      darkModeIcon.addEventListener('click', () => {
-          // Toggle the 'dark-mode' class on the body
-          document.body.classList.toggle('dark-mode');
-    
-          // Change the icon based on the current mode
-          if (document.body.classList.contains('dark-mode')) {
-              darkModeIcon.classList.remove('fa-moon-o');
-              darkModeIcon.classList.add('fa-sun-o');
-          } else {
-              darkModeIcon.classList.remove('fa-sun-o');
-              darkModeIcon.classList.add('fa-moon-o');
-          }
-      });
-    
-      // Get the floating icon and contact form elements
-      const contactIcon = document.getElementById('contactIcon');
-      const contactForm = document.getElementById('contactForm');
-    
-      // Add an event listener to the floating icon
-      contactIcon.addEventListener('click', () => {
-          // Toggle the 'contact-form-visible' class on the contact form
-          contactForm.classList.toggle('contact-form-visible');
-      });
-    </script>    
     <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
     <script src="js/core/popper.min.js?ver=1.1.0"></script>
     <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
