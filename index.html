@@ -1039,8 +1039,8 @@
 
 <!-- WhatsApp Button with Only Icon -->
 <div class="whatsapp-button">
-  <a href="https://wa.me/11234567890" target="_blank" id="whatsapp-button">
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/024/398/617/small/whatsapp-logo-icon-isolated-on-transparent-background-free-png.png" alt="WhatsApp Logo">
+  <a id="whatsapp-link" href="#" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo">
   </a>
 </div>
 
@@ -1053,7 +1053,7 @@
     z-index: 1000;
   }
 
-  #whatsapp-button img {
+  #whatsapp-link img {
     border-radius: 50%;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -1063,24 +1063,23 @@
 
   /* Responsive Styles */
   @media (max-width: 768px) {
-    #whatsapp-button img {
+    #whatsapp-link img {
       width: 40px; /* Smaller size for tablets */
       height: 40px;
     }
   }
 
   @media (max-width: 480px) {
-    #whatsapp-button img {
+    #whatsapp-link img {
       width: 35px; /* Smaller size for mobile */
       height: 35px;
     }
   }
 </style>
 
+<!-- Link to the external JavaScript file -->
+<script src="js/whatsapp-btn.js"></script>
 
-
-<!-- Include Font Awesome for the WhatsApp icon (add this to the <head> of your HTML if it's not already included) -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 
 
 <!-- Contact form -->
