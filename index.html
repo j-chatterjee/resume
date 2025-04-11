@@ -10,7 +10,7 @@
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
     <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <noscript>
       <style type="text/css">
         [data-aos] {
@@ -109,8 +109,8 @@
         <div class="col-lg-6 col-md-12">
           <div class="card-body">
             <div class="h4 mt-0 title">About</div>
-            <p>Hello! I am Joy Chattopadhyay. An aspiring cloud in AWS, GCP, AZURE along with terraform & Git.</p>
-            <p>Having understanding on Docker, Jenkins, kubernetes, spinnaker and Familiar with AWS and GCP services like EC2,S3,IAM,cloudwatch,EKS, ECR, VPC, GKE, App Engine and so on..Looking For a challenging opportunity and learn more on the DevOps part to build my skills. <a class="nav-link smooth-scroll" href="#experience">Learn More</a></p>
+            <p>Hello! I am Joy Chattopadhyay. An aspiring Cloud Engineer with 3+ years of experience in DevOps, cloud infrastructure, and system administration.</p>
+            <p>Skilled in designing cost effective scalable solutions, implementing CI/CD pipelines, and managing Kubernetes-based microservices. <a class="nav-link smooth-scroll" href="#experience">Learn More</a></p>
           </div>
         </div>
         <!-- Basic Information -->
@@ -144,13 +144,21 @@
   </div>
 </div>
 
+
 <!-- Cloud Service -->
 
 <div class="section" id="skill">
   <div class="container">
-    <div class="h4 text-center mb-4 title">Cloud Services</div>
-    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="card-body">
+    <div class="h4 text-center mb-4 title">Cloud Services
+      <!-- Dropdown Icon to toggle content visibility -->
+      <button class="btn btn-link p-0" id="dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
+        <i class="fa fa-chevron-down" id="dropdown-icon"></i>
+      </button>
+    </div>
+
+    <!-- The whole card will now be animated for fade-out -->
+    <div class="card" id="cloud-services-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
+      <div class="card-body" id="cloud-services-content">
         <div class="row">
           <div class="col-md-6">
             <div class="progress-container progress-primary"><span class="progress-badge">AWS</span>
@@ -175,59 +183,60 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Mariadb</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">spinnaker</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Docker</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Mysql</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Shell Script</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-      </div> -->
-    </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<!-- Add this JavaScript for toggle functionality -->
+<script>
+  // Get elements
+  const dropdownToggle = document.getElementById("dropdown-toggle");
+  const cloudServicesCard = document.getElementById("cloud-services-card");
+  const dropdownIcon = document.getElementById("dropdown-icon");
 
+  // Toggle the visibility of the whole cloud services card (including content)
+  dropdownToggle.addEventListener("click", function() {
+    const isExpanded = cloudServicesCard.style.opacity === "1";
+
+    if (isExpanded) {
+      // Fade-out effect for the entire card
+      cloudServicesCard.style.opacity = 0;
+      cloudServicesCard.style.transition = "opacity 0.5s ease";
+
+      // After the fade-out animation completes, hide the card
+      setTimeout(() => {
+        cloudServicesCard.style.display = "none";
+      }, 500);  // Matches the fade-out duration (500ms)
+      dropdownIcon.classList.remove("fa-chevron-up");
+      dropdownIcon.classList.add("fa-chevron-down");
+    } else {
+      // Fade-in effect for the entire card
+      cloudServicesCard.style.display = "block";
+      setTimeout(() => {
+        cloudServicesCard.style.opacity = 1;
+      }, 10);  // Small delay to ensure smooth transition
+      dropdownIcon.classList.remove("fa-chevron-down");
+      dropdownIcon.classList.add("fa-chevron-up");
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <!-- OS & Database -->
 
 <div class="section" id="skill">
   <div class="container">
-    <div class="h4 text-center mb-4 title">OS & Database</div>
-    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="card-body">
+    <div class="h4 text-center mb-4 title">OS & Database
+      <!-- Dropdown Icon to toggle content visibility -->
+      <button class="btn btn-link p-0" id="os-db-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
+        <i class="fa fa-chevron-down" id="os-db-dropdown-icon"></i>
+      </button>
+    </div>
+
+    <!-- The whole card will now be animated for fade-out -->
+    <div class="card" id="os-db-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
+      <div class="card-body" id="os-db-content">
         <div class="row">
           <div class="col-md-6">
             <div class="progress-container progress-primary"><span class="progress-badge">Linux</span>
@@ -260,95 +269,109 @@
             </div>
           </div>
         </div>
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">spinnaker</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Docker</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Mysql</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Shell Script</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-      </div> -->
-    </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Add this JavaScript for toggle functionality -->
+<script>
+  // Get elements for the OS & Database section
+  const osDbDropdownToggle = document.getElementById("os-db-dropdown-toggle");
+  const osDbCard = document.getElementById("os-db-card");
+  const osDbDropdownIcon = document.getElementById("os-db-dropdown-icon");
+
+  // Toggle the visibility of the OS & Database section (including content)
+  osDbDropdownToggle.addEventListener("click", function() {
+    const isExpanded = osDbCard.style.opacity === "1";
+
+    if (isExpanded) {
+      // Fade-out effect for the entire card
+      osDbCard.style.opacity = 0;
+      osDbCard.style.transition = "opacity 0.5s ease";
+
+      // After the fade-out animation completes, hide the card
+      setTimeout(() => {
+        osDbCard.style.display = "none";
+      }, 500);  // Matches the fade-out duration (500ms)
+      osDbDropdownIcon.classList.remove("fa-chevron-up");
+      osDbDropdownIcon.classList.add("fa-chevron-down");
+    } else {
+      // Fade-in effect for the entire card
+      osDbCard.style.display = "block";
+      setTimeout(() => {
+        osDbCard.style.opacity = 1;
+      }, 10);  // Small delay to ensure smooth transition
+      osDbDropdownIcon.classList.remove("fa-chevron-down");
+      osDbDropdownIcon.classList.add("fa-chevron-up");
+    }
+  });
+</script>
+
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 
 <!-- DevOps tools -->
 
 <div class="section" id="skill">
   <div class="container">
-    <div class="h4 text-center mb-4 title">DevOps Tools</div>
-    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="card-body">
+    <div class="h4 text-center mb-4 title">
+      DevOps & Project Management Tools
+      <!-- Dropdown Icon to toggle content visibility -->
+      <button class="btn btn-link p-0" id="devops-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
+        <i class="fa fa-chevron-down" id="devops-dropdown-icon"></i>
+      </button>
+    </div>
+
+    <!-- The whole card will now be animated for fade-out -->
+    <div class="card" id="devops-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
+      <div class="card-body" id="devops-content">
         <div class="row">
           <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">kubernetes</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Jenkins</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">terraform</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Git</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">spinnaker</span>
+            <div class="progress-container progress-primary"><span class="progress-badge">Kubernetes</span>
               <div class="progress">
                 <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
               </div>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Docker</span>
+            <div class="progress-container progress-primary"><span class="progress-badge">Jenkins</span>
               <div class="progress">
                 <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Terraform</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Git</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Spinnaker</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Docker</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
               </div>
             </div>
           </div>
@@ -362,26 +385,211 @@
             </div>
           </div>
           <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">SonarQube</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Jira</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Bitbucket</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Confluence</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
             <div class="progress-container progress-primary"><span class="progress-badge">Shell Script</span>
               <div class="progress">
                 <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
               </div>
             </div>
           </div>
+        </div>
       </div>
-    </div>
     </div>
   </div>
 </div>
+
+<!-- Add this JavaScript for toggle functionality -->
+<script>
+  // Get elements for the DevOps & Project Management Tools section
+  const devopsDropdownToggle = document.getElementById("devops-dropdown-toggle");
+  const devopsCard = document.getElementById("devops-card");
+  const devopsDropdownIcon = document.getElementById("devops-dropdown-icon");
+
+  // Toggle the visibility of the DevOps & Project Management Tools section (including content)
+  devopsDropdownToggle.addEventListener("click", function() {
+    const isExpanded = devopsCard.style.opacity === "1";
+
+    if (isExpanded) {
+      // Fade-out effect for the entire card
+      devopsCard.style.opacity = 0;
+      devopsCard.style.transition = "opacity 0.5s ease";
+
+      // After the fade-out animation completes, hide the card
+      setTimeout(() => {
+        devopsCard.style.display = "none";
+      }, 500);  // Matches the fade-out duration (500ms)
+      devopsDropdownIcon.classList.remove("fa-chevron-up");
+      devopsDropdownIcon.classList.add("fa-chevron-down");
+    } else {
+      // Fade-in effect for the entire card
+      devopsCard.style.display = "block";
+      setTimeout(() => {
+        devopsCard.style.opacity = 1;
+      }, 10);  // Small delay to ensure smooth transition
+      devopsDropdownIcon.classList.remove("fa-chevron-down");
+      devopsDropdownIcon.classList.add("fa-chevron-up");
+    }
+  });
+</script>
+
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+<!-- DevSecOps tools knowledge -->
+
+<div class="section" id="skill">
+  <div class="container">
+    <div class="h4 text-center mb-4 title">
+      Security/Vulnerability Scanning Tools
+      <!-- Dropdown Icon to toggle content visibility -->
+      <button class="btn btn-link p-0" id="security-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
+        <i class="fa fa-chevron-down" id="security-dropdown-icon"></i>
+      </button>
+    </div>
+
+    <!-- The whole card will now be animated for fade-out -->
+    <div class="card" id="security-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
+      <div class="card-body" id="security-content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Amazon Inspector</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Fortify WebInspect</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">CheckOV</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Trivy</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Prowler</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Tenable Nessus</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add this JavaScript for toggle functionality -->
+<script>
+  // Get elements for the Security/Vulnerability Scanning Tools section
+  const securityDropdownToggle = document.getElementById("security-dropdown-toggle");
+  const securityCard = document.getElementById("security-card");
+  const securityDropdownIcon = document.getElementById("security-dropdown-icon");
+
+  // Toggle the visibility of the Security/Vulnerability Scanning Tools section (including content)
+  securityDropdownToggle.addEventListener("click", function() {
+    const isExpanded = securityCard.style.opacity === "1";
+
+    if (isExpanded) {
+      // Fade-out effect for the entire card
+      securityCard.style.opacity = 0;
+      securityCard.style.transition = "opacity 0.5s ease";
+
+      // After the fade-out animation completes, hide the card
+      setTimeout(() => {
+        securityCard.style.display = "none";
+      }, 500);  // Matches the fade-out duration (500ms)
+      securityDropdownIcon.classList.remove("fa-chevron-up");
+      securityDropdownIcon.classList.add("fa-chevron-down");
+    } else {
+      // Fade-in effect for the entire card
+      securityCard.style.display = "block";
+      setTimeout(() => {
+        securityCard.style.opacity = 1;
+      }, 10);  // Small delay to ensure smooth transition
+      securityDropdownIcon.classList.remove("fa-chevron-down");
+      securityDropdownIcon.classList.add("fa-chevron-up");
+    }
+  });
+</script>
+
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 
 <!-- Monitoring tools knowledge -->
 
 <div class="section" id="skill">
   <div class="container">
-    <div class="h4 text-center mb-4 title">Monitoring Tools</div>
-    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="card-body">
+    <div class="h4 text-center mb-4 title">
+      Monitoring Tools
+      <!-- Dropdown Icon to toggle content visibility -->
+      <button class="btn btn-link p-0" id="monitoring-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
+        <i class="fa fa-chevron-down" id="monitoring-dropdown-icon"></i>
+      </button>
+    </div>
+
+    <!-- The whole card will now be animated for fade-out -->
+    <div class="card" id="monitoring-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
+      <div class="card-body" id="monitoring-content">
         <div class="row">
           <div class="col-md-6">
             <div class="progress-container progress-primary"><span class="progress-badge">Grafana & Prometheus</span>
@@ -393,14 +601,14 @@
           <div class="col-md-6">
             <div class="progress-container progress-primary"><span class="progress-badge">Site 24x7</span>
               <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">60%</span>
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Zabix</span>
+            <div class="progress-container progress-primary"><span class="progress-badge">Datadog</span>
               <div class="progress">
                 <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
               </div>
@@ -418,7 +626,7 @@
           <div class="col-md-6">
             <div class="progress-container progress-primary"><span class="progress-badge">Kubernetes Dashboard</span>
               <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">70%</span>
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
               </div>
             </div>
           </div>
@@ -430,26 +638,47 @@
             </div>
           </div>
         </div>
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Mysql</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Shell Script</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-      </div> -->
-    </div>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Add this JavaScript for toggle functionality -->
+<script>
+  // Get elements for the Monitoring Tools section
+  const monitoringDropdownToggle = document.getElementById("monitoring-dropdown-toggle");
+  const monitoringCard = document.getElementById("monitoring-card");
+  const monitoringDropdownIcon = document.getElementById("monitoring-dropdown-icon");
+
+  // Toggle the visibility of the Monitoring Tools section (including content)
+  monitoringDropdownToggle.addEventListener("click", function() {
+    const isExpanded = monitoringCard.style.opacity === "1";
+
+    if (isExpanded) {
+      // Fade-out effect for the entire card
+      monitoringCard.style.opacity = 0;
+      monitoringCard.style.transition = "opacity 0.5s ease";
+
+      // After the fade-out animation completes, hide the card
+      setTimeout(() => {
+        monitoringCard.style.display = "none";
+      }, 500);  // Matches the fade-out duration (500ms)
+      monitoringDropdownIcon.classList.remove("fa-chevron-up");
+      monitoringDropdownIcon.classList.add("fa-chevron-down");
+    } else {
+      // Fade-in effect for the entire card
+      monitoringCard.style.display = "block";
+      setTimeout(() => {
+        monitoringCard.style.opacity = 1;
+      }, 10);  // Small delay to ensure smooth transition
+      monitoringDropdownIcon.classList.remove("fa-chevron-down");
+      monitoringDropdownIcon.classList.add("fa-chevron-up");
+    }
+  });
+</script>
+
+<!-- Include Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <!-- Certificate -->
 
