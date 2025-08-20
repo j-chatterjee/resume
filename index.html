@@ -699,6 +699,111 @@
 <!-- Include Font Awesome for icons -->
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
 
+<!-- AI tools knowledge -->
+
+<div class="section" id="skill">
+  <div class="container">
+    <div class="h4 text-center mb-4 title">
+      AI Tools
+      <!-- Dropdown Icon to toggle content visibility -->
+      <button class="btn btn-link p-0" id="AI-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
+        <i class="fa fa-chevron-down" id="AI-dropdown-icon"></i>
+      </button>
+    </div>
+
+    <!-- The whole card will now be animated for fade-out -->
+    <div class="card" id="AI-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
+      <div class="card-body" id="AI-content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">GitHub/Microsoft Copilot</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">ChatGPT</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Gemini</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Perplexity</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Kubernetes Dashboard</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="progress-container progress-primary"><span class="progress-badge">Uptime Robot</span>
+              <div class="progress">
+                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add this JavaScript for toggle functionality -->
+<script>
+  // Get elements for the AI Tools section
+  const AIDropdownToggle = document.getElementById("AI-dropdown-toggle");
+  const AICard = document.getElementById("AI-card");
+  const AIDropdownIcon = document.getElementById("AI-dropdown-icon");
+
+  // Toggle the visibility of the AI Tools section (including content)
+  AIDropdownToggle.addEventListener("click", function() {
+    const isExpanded = AICard.style.opacity === "1";
+
+    if (isExpanded) {
+      // Fade-out effect for the entire card
+      AICard.style.opacity = 0;
+      AICard.style.transition = "opacity 0.5s ease";
+
+      // After the fade-out animation completes, hide the card
+      setTimeout(() => {
+        AICard.style.display = "none";
+      }, 500);  // Matches the fade-out duration (500ms)
+      AIDropdownIcon.classList.remove("fa-chevron-up");
+      AIDropdownIcon.classList.add("fa-chevron-down");
+    } else {
+      // Fade-in effect for the entire card
+      AICard.style.display = "block";
+      setTimeout(() => {
+        AICard.style.opacity = 1;
+      }, 10);  // Small delay to ensure smooth transition
+      AIDropdownIcon.classList.remove("fa-chevron-down");
+      AIDropdownIcon.classList.add("fa-chevron-up");
+    }
+  });
+</script>
+
+<!-- Include Font Awesome for icons -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
+
 <!-- Certificate -->
 
 <div class="section" id="certificate">
@@ -813,23 +918,23 @@
                     </figcaption>
                   </figure></a></div>
             </div>
-            <!--<div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="images/wedding-photoshoot.jpg" alt="Image"/>
+            <div class="col-md-6">
+              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Microsoft Copilot and Generative AI">
+                  <figure class="cc-effect"><img src="images/ai-certificate.png" alt="Image"/>
                     <figcaption>
-                      <div class="h4">Beach Photoshoot</div>
-                      <p>Photography</p>
+                      <div class="h4">Microsoft Copilot and Generative AI</div>
+                      <p>AI Training</p>
                     </figcaption>
                   </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
+              <!-- <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
                   <figure class="cc-effect"><img src="images/photography-4.jpg" alt="Image"/>
                     <figcaption>
                       <div class="h4">Nature Photoshoot</div>
                       <p>Photography</p>
                     </figcaption>
-                  </figure></a></div>
+                  </figure></a></div> -->
             </div>
-          </div>-->
+          </div>
         </div>
       </div>  
     </div>
@@ -1128,6 +1233,25 @@
 <div class="section" id="reference">
   <div class="container cc-reference">
     <div class="h4 mb-4 text-center title">Projects</div>
+    <!--Bitbucket to Github migration part start-->
+      <div class="card">
+      <div class="row">
+        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body cc-experience-header">
+            <div class="h5">Bitbucket to GitHub Migration</div>
+          </div>
+        </div>
+        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+          <div class="card-body">
+            <p>
+              Led and executed a fully automated migration of source code repositories from Bitbucket to GitHub for the organization, ensuring seamless transition with zero downtime.
+Implemented custom scripts to preserve commit history, branches, and access controls, while integrating CI/CD pipelines post-migration to maintain development continuity. 
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end-->
     <div class="card" data-aos="zoom-in">
       <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
         <ol class="carousel-indicators">
