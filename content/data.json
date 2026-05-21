@@ -540,7 +540,7 @@
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779392415227_terraform-certificate.png"
+      "image": "images/certificates/1779393897289_terraform-certificate.png"
     },
     {
       "id": 1779390176268,
@@ -550,7 +550,7 @@
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779392417874_k8s.jpg"
+      "image": "images/certificates/1779393900015_k8s.jpg"
     },
     {
       "id": 1779390233371,
@@ -560,7 +560,7 @@
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779392420347_gcp.jpg"
+      "image": "images/certificates/1779393902385_gcp.jpg"
     },
     {
       "id": 1779390263666,
@@ -570,7 +570,7 @@
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779392422922_hadoop.jpg"
+      "image": "images/certificates/1779393904481_hadoop.jpg"
     },
     {
       "id": 1779390293146,
@@ -580,7 +580,7 @@
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779392425130_communication.jpg"
+      "image": "images/certificates/1779393906969_communication.jpg"
     },
     {
       "id": 1779390339098,
@@ -590,7 +590,7 @@
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779392427491_devops.jpg"
+      "image": "images/certificates/1779393908981_devops.jpg"
     },
     {
       "id": 1779390362674,
@@ -600,7 +600,17 @@
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779392430074_bigquery.jpg"
+      "image": "images/certificates/1779393911887_bigquery.jpg"
+    },
+    {
+      "id": 1779393890112,
+      "title": "Super Squad",
+      "issuer": "Inadev",
+      "date": "",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": "",
+      "image": "images/certificates/1779393914319_super-squad.png"
     }
   ],
   "contact": {
