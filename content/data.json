@@ -611,6 +611,36 @@
       "credentialUrl": "",
       "description": "",
       "image": "images/certificates/1779393914319_super-squad.png"
+    },
+    {
+      "id": 1779393992720,
+      "title": "GoLang",
+      "issuer": "Inadev",
+      "date": "",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": "",
+      "image": "images/certificates/1779394064728_Golang.jpg"
+    },
+    {
+      "id": 1779394032728,
+      "title": "DevOps",
+      "issuer": "Inadev",
+      "date": "",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": "",
+      "image": "images/certificates/1779394067375_devops-cert.png"
+    },
+    {
+      "id": 1779394053088,
+      "title": "Super Star",
+      "issuer": "Inadev",
+      "date": "",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": "",
+      "image": "images/certificates/1779394070197_superstar.png"
     }
   ],
   "contact": {
