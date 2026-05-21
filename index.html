@@ -1,1584 +1,419 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Joy Chattopadhyay</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
-    <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
-    <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
-    <noscript>
-      <style type="text/css">
-        [data-aos] {
-            opacity: 1 !important;
-            transform: translate(0) scale(1) !important;
-        }
-      </style>
-    </noscript>
-    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.min.js"></script>
-  </head>
-  <body id="top">
-    <header>
-      <div class="profile-page sidebar-collapse">
-        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
-          <div class="container">
-            <div class="navbar-translate"><a class="navbar-brand" href="#" rel="tooltip">Joy Chattopadhyay</a>
-              <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#certificate">Certificates</a></li>
-                <!-- <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Portfolio</a></li> -->
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
-              </ul>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joy Chattopadhyay — Cloud Engineer</title>
+  <meta name="description" content="Portfolio of Joy Chattopadhyay, Cloud Engineer with 4+ years in DevOps, AWS, GCP, and Kubernetes.">
+  <meta property="og:title" content="Joy Chattopadhyay — Cloud Engineer">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader-logo">JC</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- ═══════════════════════════════ NAVBAR ══════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="./experience.html">Experience</a></li>
+      <li><a href="./projects.html">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./admin/" class="nav-cta"><i class="fas fa-pen-to-square"></i> Edit Site</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun  tt-icon tt-sun"></i>
+      <i class="fas fa-moon tt-icon tt-moon"></i>
+    </button>
+  </div>
+</nav>
+<section id="hero">
+  <div class="hero-gradient"></div>
+  <!-- Background orbs -->
+  <div class="bg-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 70%);top:-150px;left:-250px;animation-duration:12s;"></div>
+  <div class="bg-orb" style="width:500px;height:500px;background:radial-gradient(circle,rgba(244,114,182,0.08) 0%,transparent 70%);bottom:-100px;right:-150px;animation-delay:-4s;animation-duration:14s;"></div>
+  <div class="hero-content container">
+    <div class="hero-grid">
+
+      <!-- Left: Text -->
+      <div class="hero-left">
+        <h1 class="hero-name" id="hero-name">Joy Chattopadhyay</h1>
+        <div class="hero-meta">
+          <div class="hero-meta-row">
+            <span class="meta-label">ROLE</span>
+            <span class="meta-sep">›</span>
+            <span class="hero-typewriter" id="typewriter-text">Cloud Engineer<span class="cursor">|</span></span>
+          </div>
+          <div class="hero-meta-row">
+            <span class="meta-label">EXP</span>
+            <span class="meta-sep">›</span>
+            <span class="meta-val">4+ Years in Cloud &amp; DevOps</span>
+          </div>
+          <div class="hero-meta-row">
+            <span class="meta-label">STATUS</span>
+            <span class="meta-sep">›</span>
+            <span class="meta-val meta-avail"><span class="meta-dot"></span>&nbsp;Open to Roles</span>
+          </div>
+        </div>
+        <p class="hero-desc" id="hero-desc">
+          Building scalable, secure, and cost-effective cloud solutions with 4+ years of DevOps expertise.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="btn btn-primary" id="hire-me-btn">
+            <i class="fas fa-handshake"></i> Hire Me
+          </button>
+          <a href="#" id="hero-cv-btn" target="_blank" rel="noopener" class="btn btn-outline">
+            <i class="fas fa-download"></i> Download CV
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="#" id="hero-linkedin" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" id="hero-github" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:" class="social-icon" id="hero-email" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Profile Circle + Snapshot Card -->
+      <div class="hero-right">
+        <div class="hero-right-stack">
+          <!-- Spinning profile ring -->
+          <div class="profile-float">
+            <div class="profile-frame">
+              <div class="profile-ring"></div>
+              <div class="profile-glow"></div>
+              <img class="profile-img-circle" id="hero-profile-img" src="" alt="Profile" style="display:none;">
+              <!-- Placeholder initials shown when no image -->
+              <div class="profile-initials" id="hero-profile-initials">JC</div>
             </div>
           </div>
-        </nav>
-      </div>
-    </header>
-    <div class="page-content">
-      <div>
-        <div class="profile-page">
-          <div class="wrapper">
-            <div class="page-header page-header-small" filter-color="green">
-              <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg')"></div>
-              <div class="container">
-                <div class="content-center">
-                  <div class="cc-profile-image" data-aos="fade-in" data-aos-duration="1000"><a href="#"><img src="images/joy.jpg" alt="Joy Chattopadhyay"/></a></div>
-                  <div class="h2 title">Joy Chattopadhyay</div>
-                  <p class="category text-white"><span id="typewriter"></span></p>
-                  <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Hire Me</a>
-                  <a class="btn btn-primary" href="https://rxresu.me/chattopadhyayjoy7/joy-chattopadhyay" rel="tooltip" data-aos="zoom-in" data-aos-duration="1000" data-aos-anchor="data-aos-anchor">Download CV</a>
-                </div>
-              </div>
-              <div class="section">
-                <div class="container">
-                  <div class="button-container">
-                    <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/joychatterjee132/" rel="tooltip" title="Follow me on Linkedin" data-aos="zoom-in" data-aos-duration="1000">
-                      <i class="fa fa-linkedin"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+          <!-- Stats snapshot card -->
+          <div class="hero-snapshot">
+            <div class="hsnap-status">
+              <span class="hsnap-dot"></span>
+              <span id="hsnap-avail">Open to opportunities</span>
+            </div>
+            <div class="hsnap-stats" id="hsnap-stats">
+              <div class="hsnap-stat"><span class="hsnap-stat-val">4+</span><span class="hsnap-stat-label">Years Experience</span></div>
+              <div class="hsnap-stat"><span class="hsnap-stat-val">10+</span><span class="hsnap-stat-label">Projects Completed</span></div>
+              <div class="hsnap-stat"><span class="hsnap-stat-val">25+</span><span class="hsnap-stat-label">Technologies</span></div>
+              <div class="hsnap-stat"><span class="hsnap-stat-val">5+</span><span class="hsnap-stat-label">Certifications</span></div>
+            </div>
+            <div class="hsnap-role">
+              <span class="hsnap-role-label">// Currently at</span>
+              <span class="hsnap-role-val" id="hsnap-company">INADEV India Pvt Ltd</span>
+              <span class="hsnap-role-title" id="hsnap-title">Cloud Engineer</span>
             </div>
           </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.min.js"></script>
-        <script>
-          AOS.init();
-      
-          var typewriter = new Typewriter('#typewriter', {
-            loop: true,
-            delay: 75,
-            deleteSpeed: 50,
-          });
-      
-          typewriter
-            .typeString('Cloud Engineer')
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString('DevOps')
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString('DevSecOps')
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString('System Administrator')
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString('Linux')
-            .pauseFor(1000)
-            .deleteAll()
-            .typeString('Windows')
-            .pauseFor(1000)
-            .deleteAll()
-            .start();
-        </script>
+      </div>
 
-<!-- About section -->
+    </div>
+  </div>
+</section>
 
-<div class="section" id="about">
+<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════════ -->
+<section id="about" class="section">
   <div class="container">
-    <div class="card" data-aos="fade-up" data-aos-offset="10">
-      <div class="row">
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">About</div>
-            <p>Hello! I am Joy Chattopadhyay. An aspiring Cloud Engineer with 4+ years of experience in DevOps, cloud infrastructure, and system administration.</p>
-            <p>Skilled in designing cost effective scalable solutions, implementing CI/CD pipelines, and managing Kubernetes-based microservices. <a class="nav-link smooth-scroll" href="#experience">Learn More</a></p>
+    <div class="about-grid">
+      <!-- Image -->
+      <div class="about-img-wrap anim anim-left">
+        <img id="about-profile-img" class="about-img" src="" alt="Joy Chattopadhyay" style="display:none;">
+        <div class="about-img-placeholder" id="about-img-placeholder">
+          <div style="font-family:var(--font-display);font-size:6rem;font-weight:700;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">JC</div>
+          <span style="font-size:0.85rem;">Add profile.jpg to images/</span>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="about-text anim anim-right">
+        <span class="sec-num">//01 &mdash; ABOUT</span>
+        <h2 style="margin-top:10px;">Hello, I'm <span class="grad-text" id="about-name">Joy Chattopadhyay</span></h2>
+        <p id="about-bio-1">An aspiring Cloud Engineer with 4+ years of experience in DevOps and cloud infrastructure.</p>
+
+        <div class="about-info">
+          <div class="info-item">
+            <span class="info-label">Age</span>
+            <span class="info-value" id="about-age">31</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <a class="info-value" id="about-email" href="mailto:">—</a>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Location</span>
+            <span class="info-value" id="about-address">—</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Languages</span>
+            <span class="info-value" id="about-languages">—</span>
           </div>
         </div>
-        <!-- Basic Information -->
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">Basic Information</div>
-            <div class="row">
-              <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
-              <div class="col-sm-8" id="age"></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-              <div class="col-sm-8">joyc.chatterjee13@gmail.com</div>
-            </div>
-            <!-- <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
-              <div class="col-sm-8">+91xxxxxxxxxx</div>
-            </div> -->
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
-              <div class="col-sm-8">Asansol, West Bengal, India</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
-              <div class="col-sm-8">English, Hindi, Bengali</div>
-            </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary hire-me-trigger">
+            <i class="fas fa-handshake"></i> Hire Me
+          </button>
+          <a href="./experience.html" class="btn btn-outline">
+            <i class="fas fa-briefcase"></i> View Experience
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid stagger" id="stats-grid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ SKILLS ══════════════════════════════════ -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header anim">
+      <span class="sec-num">//02 &mdash; SKILLS</span>
+      <h2>Technical <span class="grad-text">Arsenal</span></h2>
+      <p>Technologies and tools I work with every day to build and manage cloud infrastructure.</p>
+    </div>
+    <div class="skills-body" id="skills-grid">
+      <!-- Skill modules rendered by JS -->
+    </div>
+    <div class="skills-ticker anim">
+      <div class="ticker-label">// All Tools</div>
+      <div class="ticker-track" id="skills-ticker-track"><!-- filled by JS --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CERTIFICATES ════════════════════════════ -->
+<section id="certificates" class="section">
+  <div class="container">
+    <div class="section-header anim">
+      <span class="sec-num">//03 &mdash; CREDENTIALS</span>
+      <h2>Certifi<span class="grad-text">cations</span></h2>
+      <p>Professional certifications validating cloud and DevOps expertise.</p>
+    </div>
+    <div class="cert-grid stagger" id="cert-grid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ EXPERIENCE PREVIEW ═════════════════════ -->
+<section id="exp-preview" class="section">
+  <div class="container">
+    <div class="section-header anim">
+      <span class="sec-num">//04 &mdash; EXPERIENCE</span>
+      <h2>Work <span class="grad-text">Experience</span></h2>
+      <p>Building scalable cloud solutions across enterprise environments for 4+ years.</p>
+    </div>
+    <div id="exp-preview-list">
+      <!-- Rendered by JS -->
+    </div>
+    <div class="section-cta anim">
+      <a href="./experience.html" class="btn btn-outline">
+        <i class="fas fa-briefcase"></i> View Full Experience
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ PROJECTS PREVIEW ════════════════════════ -->
+<section id="projects-preview" class="section">
+  <div class="container">
+    <div class="section-header anim">
+      <span class="sec-num">//05 &mdash; PROJECTS</span>
+      <h2>Featured <span class="grad-text">Projects</span></h2>
+      <p>Real-world cloud infrastructure and DevOps projects shipped at scale.</p>
+    </div>
+    <div class="proj-preview-grid" id="proj-preview-grid">
+      <!-- Rendered by JS -->
+    </div>
+    <div class="section-cta anim">
+      <a href="./projects.html" class="btn btn-outline">
+        <i class="fas fa-folder-open"></i> Explore All Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ CONTACT ═════════════════════════════════ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header anim">
+      <span class="sec-num">//04 &mdash; CONTACT</span>
+      <h2>Let's <span class="grad-text">Connect</span></h2>
+      <p>Have a project in mind or an exciting opportunity? I'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <!-- Info Terminal Card -->
+      <div class="contact-terminal anim anim-left">
+        <div class="ct-status"><span class="ct-dot"></span>&nbsp;Open to Opportunities</div>
+        <div class="ct-quote">"<span>Automating the cloud.</span><br>Open to the right opportunity."</div>
+        <p class="ct-tagline" id="contact-availability">Open to exciting cloud and DevOps opportunities</p>
+        <div class="ct-links">
+          <a class="ct-link" id="contact-email-link" href="mailto:">
+            <span class="ct-link-icon"><i class="fas fa-envelope"></i></span>
+            <span class="ct-link-body">
+              <span class="ct-link-label">Email</span>
+              <span class="ct-link-value" id="contact-email">—</span>
+            </span>
+            <i class="fas fa-arrow-right ct-link-arrow"></i>
+          </a>
+          <a class="ct-link" id="contact-linkedin" href="#" target="_blank" rel="noopener">
+            <span class="ct-link-icon ct-li"><i class="fab fa-linkedin-in"></i></span>
+            <span class="ct-link-body">
+              <span class="ct-link-label">LinkedIn</span>
+              <span class="ct-link-value">linkedin.com/in/joychatterjee132</span>
+            </span>
+            <i class="fas fa-arrow-right ct-link-arrow"></i>
+          </a>
+          <a class="ct-link" id="contact-github" href="#" target="_blank" rel="noopener">
+            <span class="ct-link-icon ct-gh"><i class="fab fa-github"></i></span>
+            <span class="ct-link-body">
+              <span class="ct-link-label">GitHub</span>
+              <span class="ct-link-value" id="contact-github-val">github.com/j-chatterjee</span>
+            </span>
+            <i class="fas fa-arrow-right ct-link-arrow"></i>
+          </a>
+          <div class="ct-link ct-loc">
+            <span class="ct-link-icon ct-map"><i class="fas fa-map-marker-alt"></i></span>
+            <span class="ct-link-body">
+              <span class="ct-link-label">Location</span>
+              <span class="ct-link-value" id="contact-address">—</span>
+            </span>
           </div>
         </div>
       </div>
+
+      <!-- Form -->
+      <div class="anim anim-right">
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Your Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Your Email</label>
+              <input type="email" id="cf-email" name="email" placeholder="john@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cf-subject">Subject</label>
+            <input type="text" id="cf-subject" name="subject" placeholder="Project Collaboration">
+          </div>
+          <div class="form-group">
+            <label for="cf-message">Message</label>
+            <textarea id="cf-message" name="message" placeholder="Tell me about your project…" required></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo" id="footer-name"><span class="footer-logo-bracket">[</span>JC<span class="footer-logo-bracket">]</span></div>
+    <p class="footer-copy">© <span id="footer-year">2026</span> · All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#" class="social-icon" id="footer-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-icon" id="footer-github"   target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ LIGHTBOX ════════════════════════════════ -->
+<div id="lightbox">
+  <div class="lb-content">
+    <button class="lb-close" aria-label="Close"><i class="fas fa-times"></i></button>
+    <img id="lb-img" src="" alt="Certificate">
+    <div class="lb-footer">
+      <p id="lb-caption"></p>
+      <a id="lb-download" href="#" target="_blank" rel="noopener" class="lb-download-btn" download>
+        <i class="fas fa-download"></i> Download
+      </a>
     </div>
   </div>
 </div>
 
+<!-- ═══════════════════════════════ TOASTS ══════════════════════════════════ -->
+<div id="toast-container" aria-live="polite"></div>
 
-<!-- Cloud Service -->
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursor-glow"></div>
 
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">Cloud Services
-      <!-- Dropdown Icon to toggle content visibility -->
-      <button class="btn btn-link p-0" id="dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
-        <i class="fa fa-chevron-down" id="dropdown-icon"></i>
+<!-- ═══════════════════ HIRE ME MODAL ══════════════════════════ -->
+<div id="hire-modal" class="hire-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="hire-modal-title">
+  <div class="hire-modal-card">
+    <button class="hire-modal-close" id="hire-modal-close" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="hire-modal-header">
+      <span class="hire-modal-badge"><i class="fas fa-handshake"></i> Let's Work Together</span>
+      <h2 id="hire-modal-title">Send Me a Message</h2>
+      <p>Have a project or opportunity in mind? I'd love to hear from you.</p>
+    </div>
+    <form id="hire-modal-form" class="hire-modal-form" novalidate>
+      <div class="hm-row">
+        <div class="hm-field">
+          <label for="hm-name">Your Name</label>
+          <input type="text" id="hm-name" name="name" placeholder="John Doe" required autocomplete="name">
+        </div>
+        <div class="hm-field">
+          <label for="hm-email">Email Address</label>
+          <input type="email" id="hm-email" name="email" placeholder="john@company.com" required autocomplete="email">
+        </div>
+      </div>
+      <div class="hm-field">
+        <label for="hm-subject">Subject</label>
+        <input type="text" id="hm-subject" name="subject" placeholder="Cloud infrastructure project, DevOps consultation…" required>
+      </div>
+      <div class="hm-field">
+        <label for="hm-message">Message</label>
+        <textarea id="hm-message" name="message" rows="5" placeholder="Tell me about your project, team size, timeline…" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary hire-modal-submit">
+        <i class="fas fa-paper-plane"></i> Send Message
       </button>
-    </div>
-
-    <!-- The whole card will now be animated for fade-out -->
-    <div class="card" id="cloud-services-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
-      <div class="card-body" id="cloud-services-content">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">AWS</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">80%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">GCP</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">AZURE</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Add this JavaScript for toggle functionality -->
-<script>
-  // Get elements
-  const dropdownToggle = document.getElementById("dropdown-toggle");
-  const cloudServicesCard = document.getElementById("cloud-services-card");
-  const dropdownIcon = document.getElementById("dropdown-icon");
-
-  // Toggle the visibility of the whole cloud services card (including content)
-  dropdownToggle.addEventListener("click", function() {
-    const isExpanded = cloudServicesCard.style.opacity === "1";
-
-    if (isExpanded) {
-      // Fade-out effect for the entire card
-      cloudServicesCard.style.opacity = 0;
-      cloudServicesCard.style.transition = "opacity 0.5s ease";
-
-      // After the fade-out animation completes, hide the card
-      setTimeout(() => {
-        cloudServicesCard.style.display = "none";
-      }, 500);  // Matches the fade-out duration (500ms)
-      dropdownIcon.classList.remove("fa-chevron-up");
-      dropdownIcon.classList.add("fa-chevron-down");
-    } else {
-      // Fade-in effect for the entire card
-      cloudServicesCard.style.display = "block";
-      setTimeout(() => {
-        cloudServicesCard.style.opacity = 1;
-      }, 10);  // Small delay to ensure smooth transition
-      dropdownIcon.classList.remove("fa-chevron-down");
-      dropdownIcon.classList.add("fa-chevron-up");
-    }
-  });
-</script>
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
-
-<!-- OS & Database -->
-
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">OS & Database
-      <!-- Dropdown Icon to toggle content visibility -->
-      <button class="btn btn-link p-0" id="os-db-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
-        <i class="fa fa-chevron-down" id="os-db-dropdown-icon"></i>
-      </button>
-    </div>
-
-    <!-- The whole card will now be animated for fade-out -->
-    <div class="card" id="os-db-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
-      <div class="card-body" id="os-db-content">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Linux</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">80%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Windows</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">80%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">MySQL</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Mariadb</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
 
-<!-- Add this JavaScript for toggle functionality -->
-<script>
-  // Get elements for the OS & Database section
-  const osDbDropdownToggle = document.getElementById("os-db-dropdown-toggle");
-  const osDbCard = document.getElementById("os-db-card");
-  const osDbDropdownIcon = document.getElementById("os-db-dropdown-icon");
-
-  // Toggle the visibility of the OS & Database section (including content)
-  osDbDropdownToggle.addEventListener("click", function() {
-    const isExpanded = osDbCard.style.opacity === "1";
-
-    if (isExpanded) {
-      // Fade-out effect for the entire card
-      osDbCard.style.opacity = 0;
-      osDbCard.style.transition = "opacity 0.5s ease";
-
-      // After the fade-out animation completes, hide the card
-      setTimeout(() => {
-        osDbCard.style.display = "none";
-      }, 500);  // Matches the fade-out duration (500ms)
-      osDbDropdownIcon.classList.remove("fa-chevron-up");
-      osDbDropdownIcon.classList.add("fa-chevron-down");
-    } else {
-      // Fade-in effect for the entire card
-      osDbCard.style.display = "block";
-      setTimeout(() => {
-        osDbCard.style.opacity = 1;
-      }, 10);  // Small delay to ensure smooth transition
-      osDbDropdownIcon.classList.remove("fa-chevron-down");
-      osDbDropdownIcon.classList.add("fa-chevron-up");
-    }
-  });
-</script>
-
-<!-- Include Font Awesome for icons -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
-
-
-
-<!-- DevOps tools -->
-
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">
-      DevOps & Project Management Tools
-      <!-- Dropdown Icon to toggle content visibility -->
-      <button class="btn btn-link p-0" id="devops-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
-        <i class="fa fa-chevron-down" id="devops-dropdown-icon"></i>
-      </button>
-    </div>
-
-    <!-- The whole card will now be animated for fade-out -->
-    <div class="card" id="devops-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
-      <div class="card-body" id="devops-content">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Kubernetes</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Jenkins</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Terraform</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Git</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Spinnaker</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Docker</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Azure DevOps</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">SonarQube</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Jira</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Bitbucket</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Confluence</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Shell Script</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">GitHub</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">ArgoCD</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Add this JavaScript for toggle functionality -->
-<script>
-  // Get elements for the DevOps & Project Management Tools section
-  const devopsDropdownToggle = document.getElementById("devops-dropdown-toggle");
-  const devopsCard = document.getElementById("devops-card");
-  const devopsDropdownIcon = document.getElementById("devops-dropdown-icon");
-
-  // Toggle the visibility of the DevOps & Project Management Tools section (including content)
-  devopsDropdownToggle.addEventListener("click", function() {
-    const isExpanded = devopsCard.style.opacity === "1";
-
-    if (isExpanded) {
-      // Fade-out effect for the entire card
-      devopsCard.style.opacity = 0;
-      devopsCard.style.transition = "opacity 0.5s ease";
-
-      // After the fade-out animation completes, hide the card
-      setTimeout(() => {
-        devopsCard.style.display = "none";
-      }, 500);  // Matches the fade-out duration (500ms)
-      devopsDropdownIcon.classList.remove("fa-chevron-up");
-      devopsDropdownIcon.classList.add("fa-chevron-down");
-    } else {
-      // Fade-in effect for the entire card
-      devopsCard.style.display = "block";
-      setTimeout(() => {
-        devopsCard.style.opacity = 1;
-      }, 10);  // Small delay to ensure smooth transition
-      devopsDropdownIcon.classList.remove("fa-chevron-down");
-      devopsDropdownIcon.classList.add("fa-chevron-up");
-    }
-  });
-</script>
-
-<!-- Include Font Awesome for icons -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
-
-
-
-<!-- DevSecOps tools knowledge -->
-
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">
-      Security/Vulnerability Scanning Tools
-      <!-- Dropdown Icon to toggle content visibility -->
-      <button class="btn btn-link p-0" id="security-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
-        <i class="fa fa-chevron-down" id="security-dropdown-icon"></i>
-      </button>
-    </div>
-
-    <!-- The whole card will now be animated for fade-out -->
-    <div class="card" id="security-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
-      <div class="card-body" id="security-content">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Amazon Inspector</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Fortify WebInspect</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">CheckOV</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Trivy</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Prowler</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Tenable Nessus</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Add this JavaScript for toggle functionality -->
-<script>
-  // Get elements for the Security/Vulnerability Scanning Tools section
-  const securityDropdownToggle = document.getElementById("security-dropdown-toggle");
-  const securityCard = document.getElementById("security-card");
-  const securityDropdownIcon = document.getElementById("security-dropdown-icon");
-
-  // Toggle the visibility of the Security/Vulnerability Scanning Tools section (including content)
-  securityDropdownToggle.addEventListener("click", function() {
-    const isExpanded = securityCard.style.opacity === "1";
-
-    if (isExpanded) {
-      // Fade-out effect for the entire card
-      securityCard.style.opacity = 0;
-      securityCard.style.transition = "opacity 0.5s ease";
-
-      // After the fade-out animation completes, hide the card
-      setTimeout(() => {
-        securityCard.style.display = "none";
-      }, 500);  // Matches the fade-out duration (500ms)
-      securityDropdownIcon.classList.remove("fa-chevron-up");
-      securityDropdownIcon.classList.add("fa-chevron-down");
-    } else {
-      // Fade-in effect for the entire card
-      securityCard.style.display = "block";
-      setTimeout(() => {
-        securityCard.style.opacity = 1;
-      }, 10);  // Small delay to ensure smooth transition
-      securityDropdownIcon.classList.remove("fa-chevron-down");
-      securityDropdownIcon.classList.add("fa-chevron-up");
-    }
-  });
-</script>
-
-<!-- Include Font Awesome for icons -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
-
-
-
-<!-- Monitoring tools knowledge -->
-
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">
-      Monitoring Tools
-      <!-- Dropdown Icon to toggle content visibility -->
-      <button class="btn btn-link p-0" id="monitoring-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
-        <i class="fa fa-chevron-down" id="monitoring-dropdown-icon"></i>
-      </button>
-    </div>
-
-    <!-- The whole card will now be animated for fade-out -->
-    <div class="card" id="monitoring-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
-      <div class="card-body" id="monitoring-content">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Grafana & Prometheus</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Site 24x7</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Datadog</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div><span class="progress-value">50%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">AWS CloudWatch</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Kubernetes Dashboard</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Uptime Robot</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Add this JavaScript for toggle functionality -->
-<script>
-  // Get elements for the Monitoring Tools section
-  const monitoringDropdownToggle = document.getElementById("monitoring-dropdown-toggle");
-  const monitoringCard = document.getElementById("monitoring-card");
-  const monitoringDropdownIcon = document.getElementById("monitoring-dropdown-icon");
-
-  // Toggle the visibility of the Monitoring Tools section (including content)
-  monitoringDropdownToggle.addEventListener("click", function() {
-    const isExpanded = monitoringCard.style.opacity === "1";
-
-    if (isExpanded) {
-      // Fade-out effect for the entire card
-      monitoringCard.style.opacity = 0;
-      monitoringCard.style.transition = "opacity 0.5s ease";
-
-      // After the fade-out animation completes, hide the card
-      setTimeout(() => {
-        monitoringCard.style.display = "none";
-      }, 500);  // Matches the fade-out duration (500ms)
-      monitoringDropdownIcon.classList.remove("fa-chevron-up");
-      monitoringDropdownIcon.classList.add("fa-chevron-down");
-    } else {
-      // Fade-in effect for the entire card
-      monitoringCard.style.display = "block";
-      setTimeout(() => {
-        monitoringCard.style.opacity = 1;
-      }, 10);  // Small delay to ensure smooth transition
-      monitoringDropdownIcon.classList.remove("fa-chevron-down");
-      monitoringDropdownIcon.classList.add("fa-chevron-up");
-    }
-  });
-</script>
-
-<!-- Include Font Awesome for icons -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
-
-<!-- AI tools knowledge -->
-
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">
-      AI Tools
-      <!-- Dropdown Icon to toggle content visibility -->
-      <button class="btn btn-link p-0" id="AI-dropdown-toggle" style="font-size: 1.5rem; cursor: pointer;">
-        <i class="fa fa-chevron-down" id="AI-dropdown-icon"></i>
-      </button>
-    </div>
-
-    <!-- The whole card will now be animated for fade-out -->
-    <div class="card" id="AI-card" data-aos="fade-up" data-aos-anchor-placement="top-bottom" style="transition: opacity 0.5s ease; opacity: 1;">
-      <div class="card-body" id="AI-content">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">GitHub/Microsoft Copilot</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">ChatGPT</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value">80%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Gemini</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Perplexity</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Kubernetes Dashboard</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Uptime Robot</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Add this JavaScript for toggle functionality -->
-<script>
-  // Get elements for the AI Tools section
-  const AIDropdownToggle = document.getElementById("AI-dropdown-toggle");
-  const AICard = document.getElementById("AI-card");
-  const AIDropdownIcon = document.getElementById("AI-dropdown-icon");
-
-  // Toggle the visibility of the AI Tools section (including content)
-  AIDropdownToggle.addEventListener("click", function() {
-    const isExpanded = AICard.style.opacity === "1";
-
-    if (isExpanded) {
-      // Fade-out effect for the entire card
-      AICard.style.opacity = 0;
-      AICard.style.transition = "opacity 0.5s ease";
-
-      // After the fade-out animation completes, hide the card
-      setTimeout(() => {
-        AICard.style.display = "none";
-      }, 500);  // Matches the fade-out duration (500ms)
-      AIDropdownIcon.classList.remove("fa-chevron-up");
-      AIDropdownIcon.classList.add("fa-chevron-down");
-    } else {
-      // Fade-in effect for the entire card
-      AICard.style.display = "block";
-      setTimeout(() => {
-        AICard.style.opacity = 1;
-      }, 10);  // Small delay to ensure smooth transition
-      AIDropdownIcon.classList.remove("fa-chevron-down");
-      AIDropdownIcon.classList.add("fa-chevron-up");
-    }
-  });
-</script>
-
-<!-- Include Font Awesome for icons -->
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
-
-<!-- Certificate -->
-
-<div class="section" id="certificate">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 ml-auto mr-auto">
-        <div class="h4 text-center mb-4 title">My Certificates</div>
-        <div class="nav-align-center">
-          <ul class="nav nav-pills nav-pills-primary" role="tablist">
-            <!-- <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li> -->
-            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#gcp" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#company" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="tab-content gallery mt-5">
-      <div class="tab-pane active" id="gcp">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/terraform-certificate.png" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/terraform-certificate.png" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">HashiCorp Certified: Terraform Associate (004)</div>
-                      <p>HashiCorp Certified: Terraform Associate (004)</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/gcp.jpg" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/gcp.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Google cloud</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/k8s.jpg" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/k8s.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Kubernetes</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/hadoop.jpg" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/hadoop.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">hadoop</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="company" role="tabpanel">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/communication.jpg" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/communication.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Effective communication</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/bigquery.jpg">
-                  <figure class="cc-effect"><img src="images/bigquery.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Bigquery</div>
-                      <p>Bigquery</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/devops.jpg" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/devops.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">DevOps & Kubernetes</div>
-                      <p>DevOps & Kubernetes</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/super-squad.png" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/super-squad.png" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Reward & Recognition</div>
-                      <p>Super Squad</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="Photography" role="tabpanel">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/terraform.jpg" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/terraform.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Terraform</div>
-                      <p>Terraform</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="images/Golang.jpg" target="_blank" download>
-                  <figure class="cc-effect"><img src="images/Golang.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Golang</div>
-                      <p>Golang</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#DevOps">
-                  <figure class="cc-effect"><img src="images/devops-cert.png" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">DevOps</div>
-                      <p>Cloud & DevOps</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Microsoft Copilot and Generative AI">
-                  <figure class="cc-effect"><img src="images/ai-certificate.png" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Microsoft Copilot and Generative AI</div>
-                      <p>AI Training</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>  
-    </div>
-  </div>
-</div>
-
-<!-- Portfolio -->
-
-<!-- <div class="section" id="portfolio">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 ml-auto mr-auto">
-        <div class="h4 text-center mb-4 title">Hands on experience</div>
-        <div class="nav-align-center">
-          <ul class="nav nav-pills nav-pills-primary" role="tablist">
-            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#web-development" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#graphic-design" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#Photography" role="tablist"><i class="fa fa-laptop" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="tab-content gallery mt-5">
-      <div class="tab-pane active" id="web-development">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="images/project-1.png" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Recent Project</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="images/project-2.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Docker Project</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="images/project-3.png" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">AWS Project</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="images/project-4.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Custom Docker image create</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="graphic-design" role="tabpanel">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="images/graphic-design-1.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">LAMP configuration in ubuntu</div>
-                      <p></p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="images/graphic-design-2.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Abstract Umbrella</div>
-                      <p>Graphic Design</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div> -->
-            <!-- <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="images/graphic-design-3.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Cube Surface Texture</div>
-                      <p>Graphic Design</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#graphic-design">
-                  <figure class="cc-effect"><img src="images/graphic-design-4.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Abstract Line</div>
-                      <p>Graphic Design</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane" id="Photography" role="tabpanel">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="images/photography-1.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="images/photography-3.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Wedding Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="images/photography-2.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Beach Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#Photography">
-                  <figure class="cc-effect"><img src="images/photography-4.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Nature Photoshoot</div>
-                      <p>Photography</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    <!-- </div>
-  </div>
-</div> -->
-
-<!-- Work Experience -->
-
-<div class="section" id="experience">
-  <div class="container cc-experience">
-    <div class="h4 text-center mb-4 title">Work Experience</div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>March 2024 - Present</p>
-            <div class="h5">Inadev India Pvt Ltd</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Cloud Engineer</div>
-            <p>
-              As cloud engineer I designs, implements, and manages cloud-based systems, ensuring they are scalable, secure, and cost-effective. Responsibilities include cloud architecture design, deployment, security, cost management, automation, performance monitoring, disaster recovery, and support. I collaborate with development teams, provide technical support, and create documentation. Key skills include proficiency with cloud platforms (AWS, Azure, Google Cloud), infrastructure as code, containerization, and CI/CD tools. Strong problem-solving, communication, and continuous learning are essential. 
-              </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>Apr 2023 - March 2024</p>
-            <div class="h5">Inadev India Pvt Ltd</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Associate Cloud Engineer</div>
-            <p>
-
-              I have Worked on dockerizing the web apps.
-              - Experience in AWS technologies such as EC2, ECR, EKS, S3, IAM, VPC, Load Balancer, CloudWatch, EFS, 
-               EBS, Route 53, ECS.
-              - Maintain cloud infrastructure from Terraform, Custom Terraform Modules.
-              - Branching stratergies for multiple environments and workflows.
-              - Experience in to create VPC for infrastructure Private, Public subnets as well as vpc peering.
-              - Have good knowledge of Services in K8s Like Cluster IP, Node-Port, Loadbalancer, ingress etc. 
-              - Hands on experience on AWS and GCP. 
-              - Experience on Various tools which included build tools like : Continuous Integration tools 
-               Jenkins and servers Apache nginx.
-              - I have a knowledge on Devesecops Tools like Checkov.
-              - I have a strong background in cloud infrastructure, automation, and containerization.
-              - Experience in GCP such as Google Kubernetes Engine, App engine.
-              - Pipeline configuration on Jenkins and spinnaker.
-              - Good Knowledge of Linux and windows operating system.
-              - Have Knowledge on Jira ticketing issues and Bitbucket repository management.   
-              </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>Apr 2022 - Mar 2023</p>
-            <div class="h5">Inadev India Pvt Ltd</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">System Support Engineer</div>
-            <p>I have experience with operating systems such as Windows and Linux, as well as with DevOps tools including Atlassian Jira, Bitbucket, Confluence, Git, Docker, Kubernetes, Jenkins, Spinnaker, Terraform, and SonarQube. I have worked with cloud services like Google Cloud Platform (GCP) and Amazon Web Service (AWS) and have experience with scripting languages like Golang and Shell-Script. I am skilled in working with databases such as MySQL and monitoring tools like Grafana, Prometheus, and AWS CloudWatch. I also have experience with web technology, including Apache web server.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>Sep 2021 - Mar 2022</p>
-            <div class="h5">Optimize IT Systems Pvt Ltd</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Trainee System Support Engineer</div>
-            <p>I have experience creating, packaging, and updating applications using Helm Charts, and I have worked on fixing Docker image vulnerabilities. I have a solid knowledge of Terraform for IaC creation for AWS and GCP resources, and I am skilled in Docker and Kubernetes for hosting microservices. I am proficient in shell scripting to automate manual tasks and have experience with Jira ticketing issues and Bitbucket repository management. I have also knowledge on asset management.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Education -->
-
-<div class="section">
-  <div class="container cc-education">
-    <div class="h4 text-center mb-4 title">Education</div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2016 - 2019</p>
-            <div class="h5">B.Tech</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Electronics & Communication Engineering</div>
-            <p class="category">Regent Education & Research Foundation Group Of Institutions</p>
-            <p>DGPA: 7.42</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2013 - 2016</p>
-            <div class="h5">Diploma in Engineering</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Electronics & Telecommunication Engineering</div>
-            <p class="category">The New Horizons Institute Of Technology</p>
-            <p>CGPA: 7.7</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2007 - 2009</p>
-            <div class="h5">High School</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Science and Mathematics</div>
-            <p class="category">School of Secondary board</p>
-            <p>Euismod massa scelerisque suspendisse fermentum habitant vitae ullamcorper magna quam iaculis, tristique sapien taciti mollis interdum sagittis libero nunc inceptos tellus, hendrerit vel eleifend primis lectus quisque cubilia sed mauris. Lacinia porta vestibulum diam integer quisque eros pulvinar curae, curabitur feugiat arcu vivamus parturient aliquet laoreet at, eu etiam pretium molestie ultricies sollicitudin dui.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Projects -->
-
-<div class="section" id="reference">
-  <div class="container cc-reference">
-    <div class="h4 mb-4 text-center title">Projects</div>
-    <!--Bitbucket to Github migration part start-->
-      <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <div class="h5">Bitbucket to GitHub Migration</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <p>
-              Led and executed a fully automated migration of source code repositories from Bitbucket to GitHub for the organization, ensuring seamless transition with zero downtime.
-Implemented custom scripts to preserve commit history, branches, and access controls, while integrating CI/CD pipelines post-migration to maintain development continuity. 
-              </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--end-->
-    <div class="card" data-aos="zoom-in">
-      <div class="carousel slide" id="cc-Indicators" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li class="active" data-target="#cc-Indicators" data-slide-to="0"></li>
-          <li data-target="#cc-Indicators" data-slide-to="1"></li>
-          <li data-target="#cc-Indicators" data-slide-to="2"></li>
-          <li data-target="#cc-Indicators" data-slide-to="3"></li>
-          <li data-target="#cc-Indicators" data-slide-to="4"></li>
-          <li data-target="#cc-Indicators" data-slide-to="5"></li>
-          <li data-target="#cc-Indicators" data-slide-to="6"></li>
-          <li data-target="#cc-Indicators" data-slide-to="7"></li>
-          <li data-target="#cc-Indicators" data-slide-to="8"></li>
-          <li data-target="#cc-Indicators" data-slide-to="9"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-1.jpg" alt="Image"/>
-                <div class="h5 pt-2">Special Olympics Unified Champion Schools (SOUCS)</div>
-                <!-- <p class="category">CEO / WEBM</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <P>
-                  Special Olympics Unified Champion Schools (SOUCS) is a program for school's Pre-K through university that intentionally promotes social inclusion by bringing together students with and without intellectual disabilities through sport and education-related activities. 
-                </P>
-                <div class="h5 mb-4 title">Responsibilities</div>
-                <p>Deploy new release and resolving the issues. 
-                  
-                  Containerization of applications 
-                  
-                  Create and update Kubernetes manifests to deploy applications to the cluster, 
-                  
-                  Update and execute the queries according to the requirements in the database and debug the issues. 
-                  
-                  Centralized SonarQube quality gate rules all over the platforms. 
-                  
-                  Create custom dockerfile to change angular environment value dynamically though pipeline. 
-                  
-                  Fixing alerting issues generate from the cluster</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-2.jpg" alt="Image"/>
-                <div class="h5 pt-2">EoDB - Tripura(TIDC)</div>
-                <!-- <p class="category">CEO / Creativem</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <!-- <p>Development of a digital application to verify various types of USA/Canada IDs (Passport, State 
-
-                  Driving Licensed, Green Card, Passport Card etc..) images</p> -->
-                  <div class="h5 mb-4 title">Responsibilities</div>
-                  <p>24X7 monitoring of application. 
-
-                    Deploy new releases and resolving issues.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-3.jpg" alt="Image"/>
-                <div class="h5 pt-2">Diamond & Gem Development Corporation Limited (DGDC eCustodian)</div>
-                <!-- <p class="category">CEO / Webnote</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <div class="h5 mb-4 title">Responsibilities</div>
-                <p>Create pipeline/build plan for all environment. 24X7 monitoring of application. 
-
-                  Deploy new releases and resolving issues. 
-                  
-                  Weekly and Monthly maintenance of production servers.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/rupee112.png" alt="Image"/>
-                <div class="h5 pt-2">RUPEE112</div>
-                <!-- <p class="category">CEO / Webnote</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <div class="h5 mb-4 title">Responsibilities</div>
-                <p>Create infrastructure in AWS for all environment. 24X7 monitoring of application. 
-
-                  Deploy new releases and resolving issues. 
-                  
-                  Weekly and Monthly maintenance of production servers.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-4.jpg" alt="Image"/>
-                <div class="h5 pt-2">District of Columbia Regulatory Authority (DCRA)</div>
-                <!-- <p class="category">CEO / Creativem</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <p>Design and development of a Business Portal for a state-level client in the US. </p>
-                  <div class="h5 mb-4 title">Responsibilities</div>
-                  <p>24X7 monitoring of application. 
-
-                    Deploy new releases and resolving issues. 
-                    
-                    Weekly and Monthly maintenance of production servers.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/reference-image-5.jpg" alt="Image"/>
-                <div class="h5 pt-2">Jammu & Kashmir Single Window System (
-                  J&K EODB)</div>
-                <!-- <p class="category">CEO / Creativem</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <!-- <p>Design and development of a Business Portal for a state-level client in the US. </p> -->
-                  <div class="h5 mb-4 title">Responsibilities</div>
-                  <p>24X7 monitoring of application. 
-
-                    Deploy new releases and resolving issues. 
-                    </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/bl.png" alt="Image"/>
-                <div class="h5 pt-2">BharatLoan</div>
-                <!-- <p class="category">CEO / Creativem</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <!-- <p>Design and development of a Business Portal for a state-level client in the US. </p> -->
-                  <div class="h5 mb-4 title">Responsibilities</div>
-                  <p>Create infrastructure in AWS for all environment. 24X7 monitoring of application. Troubleshoot & resolving infra issues. Weekly and Monthly maintenance of production servers.
-                    </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/lp.png" alt="Image"/>
-                <div class="h6 pt-2">LendingPlate</div>
-                <!-- <p class="category">CEO / Creativem</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <!-- <p>Design and development of a Business Portal for a state-level client in the US. </p> -->
-                  <div class="h5 mb-4 title">Responsibilities</div>
-                  <p>Create infrastructure in AWS for all environment. 24X7 monitoring of application. Troubleshoot & resolving infra issues. Weekly and Monthly maintenance of production servers.
-                    </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/mlchc.png" alt="Image"/>
-                <div class="h6 pt-2">MLCHC</div>
-                <!-- <p class="category">CEO / Creativem</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <!-- <p>Design and development of a Business Portal for a state-level client in the US. </p> -->
-                  <div class="h5 mb-4 title">Responsibilities</div>
-                  <p>Provide L1 support for the application and infrastructure. Monitor system performance and troubleshoot issues as they arise.
-                    </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-lg-2 col-md-3 cc-reference-header"><img src="images/pw.png" alt="Image"/>
-                <div class="h6 pt-2">DOB Permit Wizard</div>
-                <!-- <p class="category">CEO / Creativem</p> -->
-              </div>
-              <div class="col-lg-10 col-md-9">
-                <!-- <p>Design and development of a Business Portal for a state-level client in the US. </p> -->
-                  <div class="h5 mb-4 title">Responsibilities</div>
-                  <p>Provide L1 support for the application and infrastructure. Deploy new releases and resolving issues. 
-                    </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- WhatsApp Button with Only Icon -->
-<!-- <div class="whatsapp-button">
-  <a id="whatsapp-link" href="#" target="_blank">
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/024/398/617/small/whatsapp-logo-icon-isolated-on-transparent-background-free-png.png" alt="WhatsApp Logo">
-  </a>
-</div> -->
-
-<!-- Optional: Style the button (you can place this inside a <style> tag or in your CSS file) -->
-<!-- <style>
-  .whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-  } -->
-
-  <!-- #whatsapp-link img {
-    border-radius: 50%;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 50px; /* Default size for larger screens */
-    height: 50px;
-  } -->
-
-  <!-- /* Responsive Styles */
-  @media (max-width: 768px) {
-    #whatsapp-link img {
-      width: 40px; /* Smaller size for tablets */
-      height: 40px;
-    }
-  } -->
-
-  <!-- @media (max-width: 480px) {
-    #whatsapp-link img {
-      width: 35px; /* Smaller size for mobile */
-      height: 35px;
-    }
-  }
-</style> -->
-
-<!-- Link to the external JavaScript file -->
-<!-- <script src="js/whatsapp-btn.js"></script> -->
-
-
-
-
-<!-- Contact form -->
-
-<div class="section" id="contact">
-  <div class="cc-contact-information" style="background-image: url('images/staticmap.jpg')">
-    <div class="container">
-      <div class="cc-contact">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="card mb-0" data-aos="zoom-in">
-              <div class="h4 text-center title">Contact Me</div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="card-body">
-                    <form action="https://formspree.io/f/xgejoboy" method="POST">
-                      <div class="p pb-3"><strong>Feel free to contact me </strong></div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
-                            <input class="form-control" type="text" name="name" placeholder="Name" required="required"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-file-text"></i></span>
-                            <input class="form-control" type="text" name="Subject" placeholder="Subject" required="required"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                            <input class="form-control" type="email" name="_replyto" placeholder="E-mail" required="required"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col">
-                          <div class="form-group">
-                            <textarea class="form-control" name="message" placeholder="Your Message" required="required"></textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <label>
-                            Your file:
-                            <input type="file" name="upload">
-                          </label>  
-                          <button class="btn btn-primary" type="submit">Send</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="card-body">
-                    <p class="mb-0"><strong>Address </strong></p>
-                    <p class="pb-2">Asansol, West Bengal, India</p>
-                    <!--<p class="mb-0"><strong>Phone</strong></p>
-                    <p class="pb-2">+************</p>-->
-                    <p class="mb-0"><strong>Email</strong></p>
-                    <p>joyc.chatterjee13@gmail.com</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div></div>
-    </div>
-    <footer class="footer">
-      <!-- <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div> -->
-      <div class="h4 title text-center">Joy Chattopadhyay</div>
-      <div class="text-center text-muted">
-        <p>&copy; Joy Chattopadhyay. All rights reserved. <span id="currentYear"></span></p>
-      </div>
-    </footer>
-    
-    <!-- Include JavaScript to update the year -->
-    <script>
-      // Get the current year and update the text content
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
-    
-    <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
-    <script src="js/core/popper.min.js?ver=1.1.0"></script>
-    <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
-    <script src="js/now-ui-kit.js?ver=1.1.0"></script>
-    <script src="js/aos.js?ver=1.1.0"></script>
-    <script src="scripts/main.js?ver=1.1.0"></script>
-    <script src="js/age-calculator.js"></script>
-  </body>
+<!-- Scripts -->
+<script src="./js/main.js"></script>
+</body>
 </html>

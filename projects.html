@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Joy Chattopadhyay</title>
+  <meta name="description" content="Cloud and DevOps projects by Joy Chattopadhyay.">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <ul class="nav-links">
+      <li><a href="./index.html#about">About</a></li>
+      <li><a href="./index.html#skills">Skills</a></li>
+      <li><a href="./index.html#certificates">Certificates</a></li>
+      <li><a href="./experience.html">Experience</a></li>
+      <li><a href="./projects.html" class="active">Projects</a></li>
+      <li><a href="./index.html#contact">Contact</a></li>
+      <li><a href="./admin/" class="nav-cta"><i class="fas fa-pen-to-square"></i> Edit Site</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-sun  tt-icon tt-sun"></i>
+      <i class="fas fa-moon tt-icon tt-moon"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="container" style="position:relative;z-index:2;">
+    <span class="sec-num">//04 &mdash; PROJECTS</span>
+    <h1 style="margin-top:14px;">Notable <span class="grad-text">Work</span></h1>
+    <p>Real-world cloud and DevOps solutions designed for scale and reliability.</p>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section class="section" style="background:rgba(7,11,20,0.88);position:relative;z-index:1">
+  <div class="container">
+    <div id="filter-bar" class="filter-bar">
+      <!-- Rendered by JS -->
+    </div>
+    <div class="projects-grid" id="projects-grid">
+      <div style="grid-column:1/-1;text-align:center;padding:80px 0;color:var(--text-muted);">
+        <i class="fas fa-spinner fa-spin" style="font-size:2rem;"></i>
+        <p style="margin-top:12px;">Loading projects…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-sm" style="background:var(--bg-surface);text-align:center;border-top:1px solid var(--border);">
+  <div class="container">
+    <h2 class="anim" style="font-family:var(--font-display);font-size:1.75rem;margin-bottom:16px;">
+      Have a <span class="grad-text">project idea?</span>
+    </h2>
+    <p class="anim" style="color:var(--text-secondary);margin-bottom:28px;">
+      I'm always excited to take on new cloud infrastructure and DevOps challenges.
+    </p>
+    <div class="anim" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <button type="button" class="btn btn-primary hire-me-trigger"><i class="fas fa-paper-plane"></i> Let's Talk</button>
+      <a href="./experience.html" class="btn btn-outline"><i class="fas fa-briefcase"></i> My Experience</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo" id="footer-name"><span class="footer-logo-bracket">[</span>JC<span class="footer-logo-bracket">]</span></div>
+    <p class="footer-copy">© <span id="footer-year">2026</span> · All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="#" class="social-icon" id="footer-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-icon" id="footer-github"   target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+</footer>
+
+<div id="toast-container" aria-live="polite"></div>
+
+<div id="hire-modal" class="hire-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="hire-modal-title">
+  <div class="hire-modal-card">
+    <button class="hire-modal-close" id="hire-modal-close" aria-label="Close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="hire-modal-header">
+      <span class="hire-modal-badge"><i class="fas fa-handshake"></i> Let's Work Together</span>
+      <h2 id="hire-modal-title">Send Me a Message</h2>
+      <p>Have a project or opportunity in mind? I'd love to hear from you.</p>
+    </div>
+    <form id="hire-modal-form" class="hire-modal-form" novalidate>
+      <div class="hm-row">
+        <div class="hm-field">
+          <label for="hm-name">Your Name</label>
+          <input type="text" id="hm-name" name="name" placeholder="John Doe" required autocomplete="name">
+        </div>
+        <div class="hm-field">
+          <label for="hm-email">Email Address</label>
+          <input type="email" id="hm-email" name="email" placeholder="john@company.com" required autocomplete="email">
+        </div>
+      </div>
+      <div class="hm-field">
+        <label for="hm-subject">Subject</label>
+        <input type="text" id="hm-subject" name="subject" placeholder="Cloud infrastructure project, DevOps consultation…" required>
+      </div>
+      <div class="hm-field">
+        <label for="hm-message">Message</label>
+        <textarea id="hm-message" name="message" rows="5" placeholder="Tell me about your project, team size, timeline…" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary hire-modal-submit">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+</div>
+
+<script src="./js/main.js"></script>
+</body>
+</html>
