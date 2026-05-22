@@ -334,6 +334,10 @@
           <div class="form-group"><label>Address</label><input type="text" id="p-address" placeholder="City, State, Country"></div>
           <div class="form-group"><label>Languages (comma-separated)</label><input type="text" id="p-languages" placeholder="English, Hindi, Bengali"></div>
           <div class="form-group"><label>GitHub URL</label><input type="url" id="p-github" placeholder="https://github.com/"></div>
+          <div class="form-group"><label>LinkedIn URL</label><input type="url" id="p-linkedin" placeholder="https://linkedin.com/in/"></div>
+          <div class="form-group full"><label>CV / Resume URL</label><input type="url" id="p-cv-url" placeholder="https://rxresu.me/..."></div>
+          <div class="form-group full"><label>Availability Status</label><input type="text" id="p-availability" placeholder="Open to opportunities"></div>
+          <div class="form-group full"><label>Bio</label><textarea id="p-bio" rows="4" placeholder="A brief professional summary..." style="resize:vertical;"></textarea></div>
         </div>
 
         <div class="section-title" style="margin-top:24px;"><i class="fas fa-image" style="color:var(--primary);margin-right:8px;"></i>Profile Picture</div>
@@ -776,7 +780,11 @@ function populateAllForms() {
   setValue('p-address',   p.address);
   setValue('p-languages', (p.languages || []).join(', '));
   setValue('p-birth-date', p.birthDate || '');
-  setValue('p-github',    p.github);
+  setValue('p-github',       p.github);
+  setValue('p-linkedin',     p.linkedin);
+  setValue('p-cv-url',       p.cvUrl);
+  setValue('p-availability', p.availability);
+  setValue('p-bio',          p.bio);
 
   // Profile image preview (handles both data URLs and path strings)
   const profPreview = document.getElementById('profile-current-preview');
@@ -809,7 +817,11 @@ function collectFromForms() {
   data.personal.phone    = getValue('p-phone');
   data.personal.address  = getValue('p-address');
   data.personal.languages= getValue('p-languages').split(',').map(s=>s.trim()).filter(Boolean);
-  data.personal.github   = getValue('p-github');
+  data.personal.github       = getValue('p-github');
+  data.personal.linkedin      = getValue('p-linkedin');
+  data.personal.cvUrl         = getValue('p-cv-url');
+  data.personal.availability  = getValue('p-availability');
+  data.personal.bio           = getValue('p-bio');
 
   data.contact.availability = getValue('c-availability');
   data.contact.email     = getValue('c-email');

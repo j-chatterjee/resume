@@ -889,79 +889,107 @@ function renderCertificates(data) {
     return;
   }
 
-  const PAGE_SIZE = 4;
-  // Split certs into pages of 4
+  // Gradient palette for placeholder cards (cycles by index)
+  const GRADIENTS = [
+    'linear-gradient(135deg,#667eea 0%,#764ba2 100%)',
+    'linear-gradient(135deg,#f093fb 0%,#f5576c 100%)',
+    'linear-gradient(135deg,#4facfe 0%,#00f2fe 100%)',
+    'linear-gradient(135deg,#43e97b 0%,#38f9d7 100%)',
+    'linear-gradient(135deg,#fa709a 0%,#fee140 100%)',
+    'linear-gradient(135deg,#a18cd1 0%,#fbc2eb 100%)',
+    'linear-gradient(135deg,#fd7743 0%,#f5af19 100%)',
+    'linear-gradient(135deg,#0f3460 0%,#533483 100%)',
+  ];
+
+  const PAGE_SIZE = 6;  // 3 cols × 2 rows
   const pages = [];
   for (let i = 0; i < certs.length; i += PAGE_SIZE) pages.push(certs.slice(i, i + PAGE_SIZE));
 
-  // ── Dot nav — one dot per page ──
-  const dotsHtml = pages.map((page, pi) => {
-    const first  = page[0];
-    const imgSrc = first.image || first._pendingImage?.dataUrl || '';
-    return `
-      <button class="cert-dot ${pi === 0 ? 'active' : ''}" data-page="${pi}"
-        title="Page ${pi + 1} of ${pages.length}">
-        ${imgSrc ? `<img src="${imgSrc}" alt="">` : `<i class="fas fa-award"></i>`}
-      </button>`;
-  }).join('');
+  // ── Progress pill indicators ──
+  const indHtml = pages.length > 1
+    ? `<div class="cert-indicators">
+        ${pages.map((_, pi) => `<button class="cert-ind${pi === 0 ? ' active' : ''}" data-page="${pi}" aria-label="Page ${pi + 1}"></button>`).join('')}
+      </div>`
+    : '';
 
-  // ── Pages — each with a 2×2 grid ──
+  // ── Pages ──
   const pagesHtml = pages.map((page, pi) => {
     const tilesHtml = page.map((c, ti) => {
       const globalIdx = pi * PAGE_SIZE + ti;
       const imgSrc    = c.image || c._pendingImage?.dataUrl || '';
+      const gradient  = GRADIENTS[globalIdx % GRADIENTS.length];
+
+      const imgArea = imgSrc
+        ? `<img src="${imgSrc}" alt="${c.title}" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+        : `<div class="cert-img-ph" style="background:${gradient}">
+             <i class="fas fa-award"></i>
+             <span>${c.issuer || 'Certificate'}</span>
+           </div>`;
+
+      // When an uploaded image is present, add a hidden fallback placeholder behind it
+      const imgWithFallback = imgSrc
+        ? imgArea + `<div class="cert-img-ph" style="background:${gradient};display:none">
+             <i class="fas fa-award"></i>
+             <span>${c.issuer || 'Certificate'}</span>
+           </div>`
+        : imgArea;
+
+      const verifyBtn = c.credentialUrl
+        ? `<a href="${c.credentialUrl}" target="_blank" rel="noopener" class="cert-card-verify">
+             <i class="fas fa-external-link-alt"></i> Verify
+           </a>`
+        : '';
+
       return `
-        <div class="cert-gallery-item" data-idx="${globalIdx}">
-          ${imgSrc ? `
-            <img src="${imgSrc}" alt="${c.title}" loading="lazy">
-            <div class="cgi-overlay">
-              <div class="cgi-zoom"><i class="fas fa-search-plus"></i></div>
-              <div class="cgi-title">${c.title}</div>
-              <div class="cgi-issuer">${c.issuer}${c.date ? ' · ' + c.date : ''}</div>
-            </div>` : `
-            <div class="cert-tile-placeholder">
-              <i class="fas fa-award"></i><span>${c.title}</span>
-            </div>`}
-          <div class="cert-tile-info">
-            <div class="cert-tile-title">${c.title}</div>
-            <div class="cert-tile-meta">${c.issuer}${c.date ? ' · ' + c.date : ''}</div>
-            ${c.credentialUrl ? `<a href="${c.credentialUrl}" target="_blank" rel="noopener" class="cert-tile-verify"><i class="fas fa-external-link-alt"></i> Verify</a>` : ''}
+        <div class="cert-card" data-idx="${globalIdx}">
+          <div class="cert-card-img">
+            ${imgWithFallback}
+          </div>
+          <div class="cert-card-overlay">
+            <div class="cert-view-pill"><i class="fas fa-expand-alt"></i> View</div>
+          </div>
+          ${c.issuer ? `<div class="cert-issuer-chip">${c.issuer}</div>` : ''}
+          <div class="cert-card-info">
+            <div class="cert-card-title">${c.title}</div>
+            <div class="cert-card-meta">${c.date || ''}</div>
+            ${verifyBtn}
           </div>
         </div>`;
     }).join('');
 
     return `
-      <div class="cert-page ${pi === 0 ? 'active' : ''}" data-page="${pi}">
+      <div class="cert-page${pi === 0 ? ' active' : ''}" data-page="${pi}">
         <div class="cert-gallery">${tilesHtml}</div>
       </div>`;
   }).join('');
 
   el.innerHTML = `
-    <div class="cert-viewer anim">
-      <div class="cert-nav-dots">${dotsHtml}</div>
+    <div class="cert-viewer">
+      ${indHtml}
       <div class="cert-pages">${pagesHtml}</div>
     </div>`;
 
   // ── Page switching ──
-  const dots     = el.querySelectorAll('.cert-dot');
-  const pageEls  = el.querySelectorAll('.cert-page');
+  const inds    = el.querySelectorAll('.cert-ind');
+  const pageEls = el.querySelectorAll('.cert-page');
   let currentPage = 0;
 
   function goToPage(pi) {
     pageEls[currentPage].classList.remove('active');
-    dots[currentPage].classList.remove('active');
+    inds[currentPage]?.classList.remove('active');
     currentPage = pi;
     pageEls[currentPage].classList.add('active');
-    dots[currentPage].classList.add('active');
+    inds[currentPage]?.classList.add('active');
   }
 
-  dots.forEach(dot => dot.addEventListener('click', () => goToPage(+dot.dataset.page)));
+  inds.forEach(ind => ind.addEventListener('click', () => goToPage(+ind.dataset.page)));
 
-  // Click tile → lightbox
-  el.querySelectorAll('.cert-gallery-item').forEach(tile => {
-    tile.addEventListener('click', e => {
+  // ── Click tile → lightbox ──
+  el.querySelectorAll('.cert-card').forEach(card => {
+    card.addEventListener('click', e => {
       if (e.target.closest('a')) return;
-      const c      = certs[+tile.dataset.idx];
+      const c      = certs[+card.dataset.idx];
       const imgSrc = c.image || c._pendingImage?.dataUrl || '';
       if (imgSrc) openLightbox(imgSrc, c.title + (c.issuer ? ' — ' + c.issuer : ''), imgSrc);
     });

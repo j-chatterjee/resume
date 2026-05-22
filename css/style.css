@@ -81,7 +81,7 @@
 [data-theme="dark"] .skill-card         { background: #161b22 !important; }
 [data-theme="dark"] .exp-preview-card   { background: #161b22 !important; }
 [data-theme="dark"] .proj-preview-card  { background: #161b22 !important; }
-[data-theme="dark"] .cert-gallery-item   { background: rgba(22,27,34,0.97) !important; }
+/* cert cards inherit --bg-card in dark mode automatically */
 [data-theme="dark"] .hero-snapshot      { background: rgba(22,27,34,0.92) !important; }
 [data-theme="dark"] .contact-form       { background: #161b22 !important; }
 [data-theme="dark"] .ct-info-card       { background: rgba(22,27,34,0.7) !important; }
@@ -948,119 +948,188 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ────────────────────────────────────────────────────────────
    CERTIFICATES — DOT NAV + MASONRY GALLERY
    ============================================================ */
+/* ═══════════════════════════════════════════════════════════
+   CERTIFICATES — Premium Card Gallery
+   ═══════════════════════════════════════════════════════════ */
 #certificates { background: rgba(248,250,255,0.72); position: relative; z-index: 1; }
 .cert-grid { display: block; }
 
-/* ── Dot navigation (top) ── */
-.cert-viewer { max-width: 920px; margin: 0 auto; }
+/* ── Viewer wrapper ── */
+.cert-viewer { max-width: 1120px; margin: 0 auto; }
 
-.cert-nav-dots {
-  display: flex; justify-content: center; gap: 16px;
-  margin-bottom: 36px; flex-wrap: wrap;
-}
-.cert-dot {
-  width: 64px; height: 64px; border-radius: 50%;
-  border: 3px solid var(--border);
-  background: var(--bg-card);
-  overflow: hidden; cursor: pointer; padding: 0;
+/* ── Progress pill indicators ── */
+.cert-indicators {
   display: flex; align-items: center; justify-content: center;
-  color: var(--text-muted); font-size: 1.3rem;
-  transition: border-color 0.25s, background 0.25s, transform 0.22s, box-shadow 0.22s, color 0.22s;
+  gap: 8px; margin-bottom: 40px;
 }
-.cert-dot img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.cert-dot.active {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #fff;
-  transform: scale(1.12);
-  box-shadow: 0 0 0 4px rgba(52,211,153,0.2);
+.cert-ind {
+  height: 4px; width: 28px; border-radius: 99px;
+  background: var(--border); border: none; padding: 0; cursor: pointer;
+  transition: width 0.38s var(--ease), background 0.38s var(--ease);
 }
-.cert-dot:not(.active):hover { border-color: var(--border-glow); transform: scale(1.07); }
+.cert-ind.active { width: 56px; background: linear-gradient(90deg, var(--primary), #a855f7); }
+.cert-ind:not(.active):hover { background: var(--border-glow); width: 38px; }
 
 /* ── Pages ── */
 .cert-pages { position: relative; }
 .cert-page  { display: none; }
-.cert-page.active { display: block; animation: certPageIn 0.32s var(--ease); }
-@keyframes certPageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.cert-page.active { display: block; animation: certPageIn 0.38s var(--ease); }
+@keyframes certPageIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
-/* ── 2-column masonry gallery ── */
+/* ── 3-column gallery grid ── */
 .cert-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
-.cert-gallery-item {
-  border-radius: var(--radius-lg);
+
+/* ════════════════════════════════
+   CERT CARD — Image-first gallery tile
+   ════════════════════════════════ */
+.cert-card {
+  border-radius: 14px;
   overflow: hidden;
-  border: 2px solid transparent;
-  background: var(--bg-card);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
   cursor: pointer;
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.25s;
+  transition: transform 0.32s var(--ease), box-shadow 0.32s var(--ease), border-color 0.28s;
   position: relative;
+  /* Landscape tile — suits most certificates */
+  aspect-ratio: 3 / 2;
+  display: block;
 }
-.cert-gallery-item:hover {
-  transform: translateY(-4px) scale(1.015);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.28);
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 52px rgba(0,0,0,0.38);
+  border-color: var(--primary);
 }
-.cert-gallery-item.focused {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(52,211,153,0.18), 0 16px 48px rgba(0,0,0,0.28);
-}
-.cert-gallery-item img {
-  width: 100%; display: block;
-  transition: transform 0.4s var(--ease);
-}
-.cert-gallery-item:hover img { transform: scale(1.03); }
 
-/* overlay on hover */
-.cert-gallery-item .cgi-overlay {
+/* ── Image fills the entire tile ── */
+.cert-card-img {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--bg-surface);
+  z-index: 0;
+}
+.cert-card-img img {
+  width: 100%; height: 100%;
+  /* contain = show the FULL certificate, no cropping */
+  object-fit: contain; display: block;
+  transition: transform 0.5s var(--ease);
+}
+.cert-card:hover .cert-card-img img { transform: scale(1.04); }
+
+/* Gradient placeholder when no image */
+.cert-img-ph {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 10px;
+  color: rgba(255,255,255,0.92);
+}
+.cert-img-ph i     { font-size: 2.6rem; opacity: 0.85; }
+.cert-img-ph span  { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+                     text-transform: uppercase; opacity: 0.75; }
+
+/* ── Hover overlay — sits above image, below info strip ── */
+.cert-card-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(0deg, rgba(10,15,30,0.72) 0%, transparent 55%);
+  background: rgba(8,10,26,0.42);
+  backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center;
   opacity: 0; transition: opacity 0.3s;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 18px 16px; gap: 3px;
+  z-index: 1;
 }
-.cert-gallery-item:hover .cgi-overlay { opacity: 1; }
-.cgi-title { font-size: 0.88rem; font-weight: 700; color: #fff; line-height: 1.3; }
-.cgi-issuer { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
-.cgi-zoom { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.8rem; }
+.cert-card:hover .cert-card-overlay { opacity: 1; }
 
-/* placeholder tile when no image */
-.cert-gallery-item .cert-tile-placeholder {
-  aspect-ratio: 4/3;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; color: var(--text-muted); font-size: 2.2rem;
-  background: var(--grad-dark);
+/* ── Bottom info overlay — always visible ── */
+.cert-card-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 32px 14px 13px;
+  background: linear-gradient(to top, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.58) 55%, transparent 100%);
+  z-index: 2;
 }
-.cert-tile-placeholder span { font-size: 0.8rem; text-align: center; padding: 0 16px; }
+.cert-view-pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 22px; border-radius: 999px;
+  background: rgba(255,255,255,0.13);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: #fff; font-size: 0.82rem; font-weight: 600;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: transform 0.3s var(--ease);
+}
+.cert-card:hover .cert-view-pill { transform: translateY(0); }
 
-/* cert info strip below image (for tiles without overlay) */
-.cert-tile-info {
-  padding: 14px 16px; border-top: 1px solid var(--border);
+/* Issuer chip — floating top-left of card (direct child of .cert-card) */
+.cert-issuer-chip {
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(0,0,0,0.52);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 6px;
+  padding: 4px 9px;
+  font-size: 0.67rem; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: #fff;
+  max-width: 170px; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+  /* above overlay (z:1) and info strip (z:2) */
+  z-index: 3;
+  pointer-events: none;
 }
-.cert-tile-title { font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
-.cert-tile-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 3px; }
-.cert-tile-verify {
+
+/* ── Title & meta inside the bottom overlay ── */
+.cert-card-title {
+  font-size: 0.87rem; font-weight: 700;
+  color: #fff; line-height: 1.35;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.cert-card-meta {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.70);
+  margin-bottom: 0;
+}
+.cert-card-verify {
   display: inline-flex; align-items: center; gap: 5px;
-  margin-top: 8px; font-size: 0.75rem; color: var(--primary); font-weight: 600;
-  transition: color 0.2s;
+  font-size: 0.7rem; font-weight: 600;
+  color: #fff; text-decoration: none;
+  margin-top: 7px;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.28);
+  backdrop-filter: blur(6px);
+  align-self: flex-start;
+  transition: background 0.2s, gap 0.2s;
 }
-.cert-tile-verify:hover { color: var(--primary-dark); }
-
-.cert-placeholder {
-  width:100%; height:100%;
-  display:flex; align-items:center; justify-content:center;
-  flex-direction:column; gap:10px;
-  background: var(--grad-dark); color: var(--text-muted); font-size:2.5rem;
+.cert-card-verify:hover {
+  background: rgba(255,255,255,0.25);
+  gap: 8px;
 }
-.cert-placeholder span { font-size:0.85rem; }
 
+/* ── Legacy card-body / accent: hidden in new gallery layout ── */
+.cert-card-body  { display: none; }
+.cert-card-accent { display: none; }
+
+/* ── Empty state ── */
 .cert-empty {
   text-align: center; padding: 80px 40px; color: var(--text-muted);
 }
 .cert-empty i { font-size: 3.5rem; margin-bottom: 16px; opacity: 0.4; display: block; }
 .cert-empty p { font-size: 1rem; }
+
+/* ── Tablet: 2 columns ── */
+@media (max-width: 900px) {
+  .cert-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+/* ── Mobile: 1 column ── */
+@media (max-width: 540px) {
+  .cert-gallery { grid-template-columns: 1fr; }
+}
 
 
 
@@ -1569,7 +1638,7 @@ footer {
 @media (max-width: 1024px) {
   .skills-body { grid-template-columns: repeat(2, 1fr); }
   .proj-preview-grid { grid-template-columns: repeat(2, 1fr); }
-  .cert-gallery { grid-template-columns: 1fr; }
+  /* cert-gallery handled by 900px / 540px breakpoints above */
   .hsnap-stats { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -2150,7 +2219,13 @@ footer {
   .profile-initials { width: 152px; height: 152px; font-size: 3rem; }
 }
 @media (max-width: 600px) {
-  .hero-right { display: none; }
+  /* Show profile image above the hero text on small screens */
+  .hero-right { display: flex; order: -1; margin-bottom: 12px; }
+  .hero-snapshot { display: none; }
+  .profile-float  { width: 130px; height: 145px; }
+  .profile-frame  { width: 120px; height: 120px; }
+  .profile-img-circle { width: 112px; height: 112px; }
+  .profile-initials   { width: 112px; height: 112px; font-size: 2.2rem; }
   .hero-grid { gap: 0; }
 }
 
