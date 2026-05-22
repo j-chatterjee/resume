@@ -489,6 +489,41 @@
 
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MODALS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
 
+<!-- Stat Modal -->
+<div class="modal-overlay" id="stat-modal">
+  <div class="modal" style="max-width:440px;">
+    <div class="modal-header">
+      <h3 id="stat-modal-title">Add Stat</h3>
+      <button class="modal-close" data-close="stat-modal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Label</label>
+          <input type="text" id="sm-label" placeholder="Years Experience" oninput="onStatLabelInput()">
+        </div>
+        <div class="form-group">
+          <label>Value</label>
+          <input type="text" id="sm-value" placeholder="4+">
+        </div>
+        <div class="form-group full">
+          <label>Icon <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— auto-suggested from label, or type any Font Awesome class</span></label>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <input type="text" id="sm-icon" placeholder="fas fa-briefcase" oninput="onStatIconInput()" style="flex:1;">
+            <div id="sm-icon-preview" style="width:44px;height:44px;border-radius:10px;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;border:1px solid var(--border);flex-shrink:0;">
+              <i id="sm-icon-preview-i" class="fas fa-star" style="font-size:1.3rem;color:var(--primary);"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="tb-btn tb-btn-outline" onclick="closeModal('stat-modal')">Cancel</button>
+      <button class="tb-btn tb-btn-primary" onclick="saveStat()"><i class="fas fa-save"></i> Save Stat</button>
+    </div>
+  </div>
+</div>
+
 <!-- Experience Modal -->
 <div class="modal-overlay" id="exp-modal">
   <div class="modal">
