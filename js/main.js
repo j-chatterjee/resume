@@ -729,6 +729,7 @@ function renderAbout(data) {
   // Stats
   const statsEl = document.getElementById('stats-grid');
   if (statsEl && data.stats) {
+    statsEl.dataset.count = data.stats.length;
     statsEl.innerHTML = data.stats.map(s => `
       <div class="stat-card glass anim anim-scale">
         <div class="stat-icon"><i class="${s.icon}"></i></div>

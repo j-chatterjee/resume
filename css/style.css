@@ -592,10 +592,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
   margin-top: 64px;
 }
+/* count-driven exact columns — set via JS data-count attribute */
+.stats-grid[data-count="1"] { grid-template-columns: repeat(1, 1fr); max-width: 380px; }
+.stats-grid[data-count="2"] { grid-template-columns: repeat(2, 1fr); }
+.stats-grid[data-count="3"] { grid-template-columns: repeat(3, 1fr); }
+.stats-grid[data-count="4"] { grid-template-columns: repeat(4, 1fr); }
+.stats-grid[data-count="5"] { grid-template-columns: repeat(5, 1fr); }
+.stats-grid[data-count="6"] { grid-template-columns: repeat(3, 1fr); }
 .stat-card {
   padding: 24px 20px;
   text-align: center;
@@ -1674,7 +1681,8 @@ footer {
   .about-info { grid-template-columns: 1fr 1fr; }
 
   /* ── Stats ── */
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid[data-count="4"],
+  .stats-grid[data-count="5"] { grid-template-columns: repeat(3, 1fr); }
 
   /* ── Skills ── */
   .skills-body { grid-template-columns: 1fr; }
@@ -1728,7 +1736,9 @@ footer {
   .btn { padding: 11px 22px; font-size: 0.87rem; }
 
   /* ── Stats ── */
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid[data-count] { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid[data-count="1"] { grid-template-columns: repeat(1, 1fr); }
+  .stats-grid[data-count="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   /* ── Hero ── */
   .hero-actions { flex-direction: column; align-items: stretch; }
