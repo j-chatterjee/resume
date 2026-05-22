@@ -336,7 +336,8 @@
           <div class="form-group"><label>GitHub URL</label><input type="url" id="p-github" placeholder="https://github.com/"></div>
           <div class="form-group"><label>LinkedIn URL</label><input type="url" id="p-linkedin" placeholder="https://linkedin.com/in/"></div>
           <div class="form-group full"><label>CV / Resume URL</label><input type="url" id="p-cv-url" placeholder="https://rxresu.me/..."></div>
-          <div class="form-group full"><label>Availability Status</label><input type="text" id="p-availability" placeholder="Open to opportunities"></div>
+          <div class="form-group full"><label>Exp Summary <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— shown in EXP row on homepage (e.g. "4+ Years in Cloud &amp; DevOps")</span></label><input type="text" id="p-exp-summary" placeholder="4+ Years in Cloud &amp; DevOps"></div>
+          <div class="form-group full"><label>Availability Status <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— shown in STATUS row on homepage</span></label><input type="text" id="p-availability" placeholder="Open to opportunities"></div>
           <div class="form-group full"><label>Bio</label><textarea id="p-bio" rows="4" placeholder="A brief professional summary..." style="resize:vertical;"></textarea></div>
         </div>
 
@@ -818,6 +819,7 @@ function populateAllForms() {
   setValue('p-github',       p.github);
   setValue('p-linkedin',     p.linkedin);
   setValue('p-cv-url',       p.cvUrl);
+  setValue('p-exp-summary',  p.expSummary);
   setValue('p-availability', p.availability);
   setValue('p-bio',          p.bio);
 
@@ -855,6 +857,7 @@ function collectFromForms() {
   data.personal.github       = getValue('p-github');
   data.personal.linkedin      = getValue('p-linkedin');
   data.personal.cvUrl         = getValue('p-cv-url');
+  data.personal.expSummary    = getValue('p-exp-summary');
   data.personal.availability  = getValue('p-availability');
   data.personal.bio           = getValue('p-bio');
 

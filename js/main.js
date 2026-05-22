@@ -652,6 +652,12 @@ function renderHero(data) {
   const emailBtn = document.getElementById('hero-email');
   if (emailBtn && p.email) emailBtn.href = 'mailto:' + p.email;
 
+  // ── Hero meta rows ──
+  const heroExp = document.getElementById('hero-exp');
+  if (heroExp && p.expSummary) heroExp.textContent = p.expSummary;
+  const heroStatus = document.getElementById('hero-status');
+  if (heroStatus && p.availability) heroStatus.innerHTML = '<span class="meta-dot"></span>&nbsp;' + p.availability;
+
   // ── Snapshot card (all replaceable via admin) ──
   const snapAvail = document.getElementById('hsnap-avail');
   if (snapAvail) snapAvail.textContent = p.availability || 'Open to opportunities';
