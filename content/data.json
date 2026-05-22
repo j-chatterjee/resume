@@ -31,19 +31,19 @@
   },
   "stats": [
     {
-      "label": "Experience",
-      "value": "4+",
-      "icon": "fas fa-star"
+      "label": "Year of Experience",
+      "value": "5+",
+      "icon": "fas fa-briefcase"
     },
     {
-      "label": "Global Certifications",
+      "label": "Global Certification",
       "value": "2+",
-      "icon": "fas fa-star"
+      "icon": "fas fa-certificate"
     },
     {
-      "label": "Technologies",
+      "label": "Technology",
       "value": "25+",
-      "icon": "fas fa-star"
+      "icon": "fas fa-code"
     }
   ],
   "skills": [
