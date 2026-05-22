@@ -863,9 +863,10 @@ function renderStatsList() {
       <div class="item-card-icon"><i class="${s.icon || 'fas fa-star'}"></i></div>
       <div class="item-card-body">
         <div class="item-card-title">${s.value} ${s.label}</div>
-        <div class="item-card-sub"><i class="${s.icon}"></i> ${s.icon}</div>
+        <div class="item-card-sub"><i class="${s.icon || 'fas fa-star'}"></i> ${s.icon || 'fas fa-star'}</div>
       </div>
       <div class="item-card-actions">
+        <button class="ic-btn" onclick="openStatModal(${i})" title="Edit"><i class="fas fa-pen"></i></button>
         <button class="ic-btn danger" onclick="deleteStat(${i})" title="Delete"><i class="fas fa-trash"></i></button>
       </div>
     </div>`).join('') || '<p style="color:var(--muted);font-size:0.85rem;">No stats yet.</p>';
@@ -1136,14 +1137,57 @@ function saveSkillCat() {
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    CRUD &ndash; STATS
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-function addStat() {
-  const label = prompt('Stat label (e.g. "Projects Completed"):');
-  if (!label) return;
-  const value = prompt('Stat value (e.g. "10+"):');
-  const icon  = prompt('Font Awesome icon class (e.g. "fas fa-project-diagram"):', 'fas fa-star');
-  data.stats.push({ label, value: value||'', icon: icon||'fas fa-star' });
-  renderStatsList(); markDirty(); toast('Stat added.', 'success');
+function autoIconFromLabel(label) {
+  const t = label.toLowerCase();
+  if (/year|exp|work/.test(t))          return 'fas fa-briefcase';
+  if (/project/.test(t))                return 'fas fa-project-diagram';
+  if (/certif|award|badge/.test(t))     return 'fas fa-certificate';
+  if (/tech|tool|stack|skill/.test(t))  return 'fas fa-code';
+  if (/client|customer/.test(t))        return 'fas fa-users';
+  if (/trophy|win/.test(t))             return 'fas fa-trophy';
+  if (/contrib|commit/.test(t))         return 'fas fa-code-branch';
+  if (/book|publish|paper/.test(t))     return 'fas fa-book';
+  if (/global|nation|country/.test(t))  return 'fas fa-globe';
+  if (/cloud|deploy|infra/.test(t))     return 'fas fa-cloud';
+  if (/open.?source/.test(t))           return 'fas fa-code-branch';
+  if (/language|lang/.test(t))          return 'fas fa-language';
+  if (/hour|minute/.test(t))            return 'fas fa-clock';
+  return 'fas fa-star';
 }
+function onStatLabelInput() {
+  const label = document.getElementById('sm-label').value;
+  const icon = autoIconFromLabel(label);
+  document.getElementById('sm-icon').value = icon;
+  document.getElementById('sm-icon-preview-i').className = icon;
+}
+function onStatIconInput() {
+  const icon = (document.getElementById('sm-icon').value.trim()) || 'fas fa-star';
+  document.getElementById('sm-icon-preview-i').className = icon;
+}
+function openStatModal(idx = -1) {
+  editingIdx.statIdx = idx;
+  document.getElementById('stat-modal-title').textContent = idx >= 0 ? 'Edit Stat' : 'Add Stat';
+  if (idx >= 0) {
+    const s = data.stats[idx];
+    setValue('sm-label', s.label);
+    setValue('sm-value', s.value);
+    setValue('sm-icon',  s.icon || 'fas fa-star');
+    document.getElementById('sm-icon-preview-i').className = s.icon || 'fas fa-star';
+  } else {
+    setValue('sm-label', ''); setValue('sm-value', ''); setValue('sm-icon', 'fas fa-star');
+    document.getElementById('sm-icon-preview-i').className = 'fas fa-star';
+  }
+  openModal('stat-modal');
+}
+function saveStat() {
+  const label = getValue('sm-label');
+  if (!label) { toast('Label is required.', 'error'); return; }
+  const entry = { label, value: getValue('sm-value'), icon: getValue('sm-icon') || 'fas fa-star' };
+  if (editingIdx.statIdx >= 0) data.stats[editingIdx.statIdx] = entry;
+  else data.stats.push(entry);
+  renderStatsList(); closeModal('stat-modal'); markDirty(); toast('Stat saved.', 'success');
+}
+function addStat() { openStatModal(); }
 function deleteStat(i) { if (confirm('Delete stat?')) { data.stats.splice(i,1); renderStatsList(); markDirty(); } }
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
