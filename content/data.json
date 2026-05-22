@@ -654,7 +654,7 @@
     "githubRepo": "resume",
     "siteTitle": "The Cloud Nomad",
     "siteDescription": "",
-    "maintenance": true,
+    "maintenance": false,
     "keywords": "Cloud, DevOps, AIOps, Agentic AI, Python, Coding, Freelancing",
     "siteUrl": "https://j-chatterjee.github.io/resume/"
   }
