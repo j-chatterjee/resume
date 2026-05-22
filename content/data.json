@@ -398,25 +398,6 @@
   ],
   "projects": [
     {
-      "id": 1779389453695,
-      "title": "Special Olympics Unified Champion Schools (SOUCS)",
-      "category": "DevOps",
-      "description": "Special Olympics Unified Champion Schools (SOUCS) is a program for school's Pre-K through university that intentionally promotes social inclusion by bringing together students with and without intellectual disabilities through sport and education-related activities.",
-      "details": "Deploy new release and resolving the issues. Containerization of applications Create and update Kubernetes manifests to deploy applications to the cluster, Update and execute the queries according to the requirements in the database and debug the issues. Centralized SonarQube quality gate rules all over the platforms. Create custom dockerfile to change angular environment value dynamically though pipeline. Fixing alerting issues generate from the cluster",
-      "highlights": [
-        "Zero downtime deployment",
-        "Automated CICD pipeline"
-      ],
-      "technologies": [
-        "Azure DevOps",
-        "Kibernetes"
-      ],
-      "github": "",
-      "demo": "",
-      "featured": true,
-      "image": ""
-    },
-    {
       "id": 1779389569697,
       "title": "Diamond & Gem Development Corporation Limited (DGDC eCustodian) Responsibilities  Create pipeline/build plan for all environment. 24X7 monitoring of application. Deploy new releases and resolving",
       "category": "Cloud",
@@ -431,6 +412,25 @@
         "Jenkins",
         "SonarQube",
         "Linux"
+      ],
+      "github": "",
+      "demo": "",
+      "featured": true,
+      "image": ""
+    },
+    {
+      "id": 1779389453695,
+      "title": "Special Olympics Unified Champion Schools (SOUCS)",
+      "category": "DevOps",
+      "description": "Special Olympics Unified Champion Schools (SOUCS) is a program for school's Pre-K through university that intentionally promotes social inclusion by bringing together students with and without intellectual disabilities through sport and education-related activities.",
+      "details": "Deploy new release and resolving the issues. Containerization of applications Create and update Kubernetes manifests to deploy applications to the cluster, Update and execute the queries according to the requirements in the database and debug the issues. Centralized SonarQube quality gate rules all over the platforms. Create custom dockerfile to change angular environment value dynamically though pipeline. Fixing alerting issues generate from the cluster",
+      "highlights": [
+        "Zero downtime deployment",
+        "Automated CICD pipeline"
+      ],
+      "technologies": [
+        "Azure DevOps",
+        "Kibernetes"
       ],
       "github": "",
       "demo": "",
@@ -644,10 +644,10 @@
     }
   ],
   "contact": {
-    "address": "",
-    "email": "",
+    "address": "Asansol, West Bengal, India",
+    "email": "joyc.chatterjee3@gmail.com",
     "phone": "",
-    "availability": ""
+    "availability": "Open to exciting opportunities"
   },
   "meta": {
     "githubOwner": "j-chatterjee",
