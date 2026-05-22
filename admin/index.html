@@ -221,10 +221,58 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* â”€â”€ RESPONSIVE â”€â”€ */
+        /* Hamburger toggle button */
+    .mob-menu-btn {
+      display: none;
+      align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--subtle);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-right: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .mob-menu-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Sidebar backdrop overlay */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(3px);
+      z-index: 200;
+    }
+    .sidebar-backdrop.open { display: block; }
+
     @media (max-width: 768px) {
-      .sidebar { display: none; }
-      .form-grid { grid-template-columns: 1fr; }
-      .form-grid.cols-3 { grid-template-columns: 1fr; }
+      .mob-menu-btn { display: flex; }
+      .sidebar {
+        position: fixed; top: 0; bottom: 0; left: 0;
+        z-index: 300;
+        transform: translateX(-100%);
+        transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+        width: 270px;
+        box-shadow: 4px 0 32px rgba(0,0,0,0.45);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .topbar { padding: 0 14px; gap: 8px; flex-wrap: nowrap; }
+      .topbar-title { font-size: 0.92rem; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .save-indicator span { display: none; }
+      .save-indicator { gap: 0; }
+      .tb-btn { padding: 7px 10px; }
+      .content { padding: 18px 16px; }
+      .form-grid, .form-grid.cols-3, .form-grid.cols-2 { grid-template-columns: 1fr; }
+      .item-card { flex-wrap: wrap; gap: 10px; }
+      .item-card-actions { margin-left: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .topbar-actions { gap: 6px; }
+      .tb-btn-outline { display: none; }
+      .content { padding: 14px 12px; }
     }
 
     /* -- MAINTENANCE TOGGLE -- */
@@ -304,6 +352,7 @@
   <div class="main">
     <!-- Topbar -->
     <header class="topbar">
+      <button class="mob-menu-btn" id="mob-menu-btn" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
       <div class="topbar-title" id="topbar-title">Personal Info</div>
       <div class="topbar-actions">
         <div class="save-indicator unsaved" id="save-indicator">
@@ -486,6 +535,7 @@
 
     </div><!-- /content -->
   </div><!-- /main -->
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 </div><!-- /app -->
 
 <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MODALS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
@@ -689,6 +739,20 @@
 <div id="cms-toast"></div>
 
 <script>
+// ── MOBILE SIDEBAR TOGGLE ─────────────────────────────────────
+(function () {
+  var btn      = document.getElementById('mob-menu-btn');
+  var sidebar  = document.querySelector('.sidebar');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!btn || !sidebar || !backdrop) return;
+  function openSidebar()  { sidebar.classList.add('open'); backdrop.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeSidebar() { sidebar.classList.remove('open'); backdrop.classList.remove('open'); document.body.style.overflow = ''; }
+  btn.addEventListener('click', function () { sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+  backdrop.addEventListener('click', closeSidebar);
+  document.querySelectorAll('.nav-item').forEach(function (item) {
+    item.addEventListener('click', function () { if (window.innerWidth <= 768) closeSidebar(); });
+  });
+})();
 'use strict';
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
