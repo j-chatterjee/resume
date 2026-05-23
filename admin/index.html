@@ -387,7 +387,8 @@
           <div class="form-group full"><label>CV / Resume URL</label><input type="url" id="p-cv-url" placeholder="https://rxresu.me/..."></div>
           <div class="form-group full"><label>Exp Summary <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— shown in EXP row on homepage (e.g. "4+ Years in Cloud &amp; DevOps")</span></label><input type="text" id="p-exp-summary" placeholder="4+ Years in Cloud &amp; DevOps"></div>
           <div class="form-group full"><label>Availability Status <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— shown in STATUS row on homepage</span></label><input type="text" id="p-availability" placeholder="Open to opportunities"></div>
-          <div class="form-group full"><label>Bio</label><textarea id="p-bio" rows="4" placeholder="A brief professional summary..." style="resize:vertical;"></textarea></div>
+          <div class="form-group full"><label>Bio <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— full description shown in About section</span></label><textarea id="p-bio" rows="4" placeholder="A brief professional summary..." style="resize:vertical;"></textarea></div>
+          <div class="form-group full"><label>Short Bio <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— one-liner shown in the Hero section (leave blank to auto-use first sentence of Bio)</span></label><textarea id="p-short-bio" rows="2" placeholder="e.g. AIOps-focused engineer with 4+ years in Cloud &amp; DevOps." style="resize:vertical;"></textarea></div>
         </div>
 
         <div class="section-title" style="margin-top:24px;"><i class="fas fa-image" style="color:var(--primary);margin-right:8px;"></i>Profile Picture</div>
@@ -425,6 +426,10 @@
       <!-- â”€â”€ EXPERIENCE â”€â”€ -->
       <div class="panel" id="panel-experience">
         <div class="section-title"><i class="fas fa-briefcase" style="color:var(--primary);margin-right:8px;"></i>Work Experience</div>
+        <div class="form-group full" style="margin-bottom:20px;">
+          <label>Section Subtitle <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— shown below the "Work Experience" heading on homepage</span></label>
+          <input type="text" id="exp-subtitle-input" placeholder="Building scalable cloud solutions across enterprise environments for 4+ years.">
+        </div>
         <div id="exp-list" class="item-list"></div>
         <button class="tb-btn tb-btn-outline" id="add-exp-btn" style="font-size:0.8rem;padding:8px 16px;">
           <i class="fas fa-plus"></i> Add Experience
@@ -671,6 +676,7 @@
         <div class="form-group"><label>Certificate Title</label><input type="text" id="cm-title" placeholder="AWS Solutions Architect"></div>
         <div class="form-group"><label>Issuing Organization</label><input type="text" id="cm-issuer" placeholder="Amazon Web Services"></div>
         <div class="form-group"><label>Issue Date</label><input type="text" id="cm-date" placeholder="Jan 2024"></div>
+        <div class="form-group"><label>Category <span style="font-size:0.75rem;color:var(--muted);font-weight:400;">— used for tab grouping on site</span></label><input type="text" id="cm-category" placeholder="e.g. Cloud &amp; IaC, DevOps, Awards"></div>
         <div class="form-group"><label>Credential ID (optional)</label><input type="text" id="cm-cid" placeholder="ABC123XYZ"></div>
         <div class="form-group full"><label>Credential URL (optional)</label><input type="url" id="cm-url" placeholder="https://verify.…"></div>
         <div class="form-group full"><label>Description (optional)</label><textarea id="cm-desc" rows="2" placeholder="Brief description…"></textarea></div>
@@ -886,6 +892,7 @@ function populateAllForms() {
   setValue('p-exp-summary',  p.expSummary);
   setValue('p-availability', p.availability);
   setValue('p-bio',          p.bio);
+  setValue('p-short-bio',    p.shortBio || '');
 
   // Profile image preview (handles both data URLs and path strings)
   const profPreview = document.getElementById('profile-current-preview');
@@ -907,6 +914,7 @@ function populateAllForms() {
   setValue('seo-desc',     m.siteDescription || '');
   setValue('seo-keywords', m.keywords        || '');
   setValue('seo-url',      m.siteUrl         || '');
+  setValue('exp-subtitle-input', m.expSubtitle || '');
 }
 
 function collectFromForms() {
@@ -924,6 +932,7 @@ function collectFromForms() {
   data.personal.expSummary    = getValue('p-exp-summary');
   data.personal.availability  = getValue('p-availability');
   data.personal.bio           = getValue('p-bio');
+  data.personal.shortBio      = getValue('p-short-bio') || undefined;
 
   data.contact.availability = getValue('c-availability');
   data.contact.email     = getValue('c-email');
@@ -941,6 +950,7 @@ function collectFromForms() {
   data.meta.siteDescription = getValue('seo-desc');
   data.meta.keywords        = getValue('seo-keywords');
   data.meta.siteUrl         = getValue('seo-url');
+  data.meta.expSubtitle     = getValue('exp-subtitle-input');
 }
 
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
@@ -1081,7 +1091,7 @@ function renderCertList() {
         : `<div class="item-card-icon"><i class="fas fa-award"></i></div>`}
       <div class="item-card-body">
         <div class="item-card-title">${c.title}</div>
-        <div class="item-card-sub">${c.issuer}${c.date ? ' &middot; ' + c.date : ''}</div>
+        <div class="item-card-sub">${c.issuer}${c.date ? ' &middot; ' + c.date : ''}${c.category ? ' &middot; <span style="color:var(--primary);">' + c.category + '</span>' : ''}</div>
       </div>
       <div class="item-card-actions">
         <button class="ic-btn" onclick="editCert(${i})" title="Edit"><i class="fas fa-pen"></i></button>
@@ -1187,19 +1197,20 @@ function openCertModal(idx=-1) {
   if (idx >= 0) {
     const c = data.certificates[idx];
     setValue('cm-title',c.title); setValue('cm-issuer',c.issuer); setValue('cm-date',c.date||'');
+    setValue('cm-category',c.category||'');
     setValue('cm-cid',c.credentialId||''); setValue('cm-url',c.credentialUrl||''); setValue('cm-desc',c.description||'');
     if (c.image) {
       document.getElementById('cert-upload-preview').innerHTML = `<img src="${c.image}" alt="" style="max-height:120px;border-radius:8px;border:1px solid var(--border);">`;
       document.getElementById('cert-upload-preview').style.display = 'block';
     }
-  } else { ['cm-title','cm-issuer','cm-date','cm-cid','cm-url','cm-desc'].forEach(id=>setValue(id,'')); }
+  } else { ['cm-title','cm-issuer','cm-date','cm-category','cm-cid','cm-url','cm-desc'].forEach(id=>setValue(id,'')); }
   openModal('cert-modal');
 }
 function saveCert() {
   const title = getValue('cm-title'); const issuer = getValue('cm-issuer');
   if (!title || !issuer) { toast('Title and Issuer are required.', 'error'); return; }
   const existing = editingIdx.cert >= 0 ? data.certificates[editingIdx.cert] : {};
-  const entry = { id: existing.id || Date.now(), title, issuer, date:getValue('cm-date'), credentialId:getValue('cm-cid'), credentialUrl:getValue('cm-url'), description:getValue('cm-desc'), image: pendingCertImage ? pendingCertImage.dataUrl : (existing.image || ''), _pendingImage: pendingCertImage || null };
+  const entry = { id: existing.id || Date.now(), title, issuer, date:getValue('cm-date'), category:getValue('cm-category')||'', credentialId:getValue('cm-cid'), credentialUrl:getValue('cm-url'), description:getValue('cm-desc'), image: pendingCertImage ? pendingCertImage.dataUrl : (existing.image || ''), _pendingImage: pendingCertImage || null };
   if (editingIdx.cert >= 0) data.certificates[editingIdx.cert] = entry;
   else data.certificates.push(entry);
   renderCertList(); closeModal('cert-modal'); persistNow(); toast('Certificate saved!', 'success');

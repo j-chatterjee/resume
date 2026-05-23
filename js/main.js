@@ -834,6 +834,10 @@ function renderExpPreview(data) {
   const el = document.getElementById('exp-preview-list');
   if (!el || !data.experience || !data.experience.length) return;
 
+  // Section subtitle from meta
+  const sub = data?.meta?.expSubtitle;
+  if (sub) setInner('exp-subtitle', sub);
+
   // Show current role prominently + last 2 total
   const list = data.experience.slice(0, 3);
   el.className = 'exp-preview-list';
@@ -882,7 +886,7 @@ function renderProjectsPreview(data) {
   observeNewAnims();
 }
 
-// ── CERTIFICATES RENDER — PAGED (4 per page) + DOT NAV ───────
+// ── CERTIFICATES RENDER — Category tabs + filtered gallery ───
 function renderCertificates(data) {
   const el = document.getElementById('cert-grid');
   if (!el) return;
@@ -910,92 +914,80 @@ function renderCertificates(data) {
     'linear-gradient(135deg,#0f3460 0%,#533483 100%)',
   ];
 
-  const PAGE_SIZE = 6;  // 3 cols × 2 rows
-  const pages = [];
-  for (let i = 0; i < certs.length; i += PAGE_SIZE) pages.push(certs.slice(i, i + PAGE_SIZE));
+  // Collect unique categories in first-occurrence order
+  const categories = ['All'];
+  certs.forEach(c => {
+    const cat = (c.category || '').trim();
+    if (cat && !categories.includes(cat)) categories.push(cat);
+  });
 
-  // ── Progress pill indicators ──
-  const indHtml = pages.length > 1
-    ? `<div class="cert-indicators">
-        ${pages.map((_, pi) => `<button class="cert-ind${pi === 0 ? ' active' : ''}" data-page="${pi}" aria-label="Page ${pi + 1}"></button>`).join('')}
-      </div>`
-    : '';
-
-  // ── Pages ──
-  const pagesHtml = pages.map((page, pi) => {
-    const tilesHtml = page.map((c, ti) => {
-      const globalIdx = pi * PAGE_SIZE + ti;
-      const imgSrc    = c.image || c._pendingImage?.dataUrl || '';
-      const gradient  = GRADIENTS[globalIdx % GRADIENTS.length];
-
-      const imgArea = imgSrc
-        ? `<img src="${imgSrc}" alt="${c.title}" loading="lazy"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-        : `<div class="cert-img-ph" style="background:${gradient}">
-             <i class="fas fa-award"></i>
-             <span>${c.issuer || 'Certificate'}</span>
-           </div>`;
-
-      // When an uploaded image is present, add a hidden fallback placeholder behind it
-      const imgWithFallback = imgSrc
-        ? imgArea + `<div class="cert-img-ph" style="background:${gradient};display:none">
-             <i class="fas fa-award"></i>
-             <span>${c.issuer || 'Certificate'}</span>
-           </div>`
-        : imgArea;
-
-      const verifyBtn = c.credentialUrl
-        ? `<a href="${c.credentialUrl}" target="_blank" rel="noopener" class="cert-card-verify">
-             <i class="fas fa-external-link-alt"></i> Verify
-           </a>`
-        : '';
-
-      return `
-        <div class="cert-card" data-idx="${globalIdx}">
-          <div class="cert-card-img">
-            ${imgWithFallback}
-          </div>
-          <div class="cert-card-overlay">
-            <div class="cert-view-pill"><i class="fas fa-expand-alt"></i> View</div>
-          </div>
-          ${c.issuer ? `<div class="cert-issuer-chip">${c.issuer}</div>` : ''}
-          <div class="cert-card-info">
-            <div class="cert-card-title">${c.title}</div>
-            <div class="cert-card-meta">${c.date || ''}</div>
-            ${verifyBtn}
-          </div>
-        </div>`;
-    }).join('');
-
+  // Build card HTML
+  const cardHtml = (c, idx) => {
+    const imgSrc   = c.image || c._pendingImage?.dataUrl || '';
+    const gradient = GRADIENTS[idx % GRADIENTS.length];
+    const imgArea  = imgSrc
+      ? `<img src="${imgSrc}" alt="${c.title}" loading="lazy"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+         <div class="cert-img-ph" style="background:${gradient};display:none">
+           <i class="fas fa-award"></i>
+           <span>${c.issuer || 'Certificate'}</span>
+         </div>`
+      : `<div class="cert-img-ph" style="background:${gradient}">
+           <i class="fas fa-award"></i>
+           <span>${c.issuer || 'Certificate'}</span>
+         </div>`;
+    const verifyBtn = c.credentialUrl
+      ? `<a href="${c.credentialUrl}" target="_blank" rel="noopener" class="cert-card-verify">
+           <i class="fas fa-external-link-alt"></i> Verify
+         </a>`
+      : '';
     return `
-      <div class="cert-page${pi === 0 ? ' active' : ''}" data-page="${pi}">
-        <div class="cert-gallery">${tilesHtml}</div>
+      <div class="cert-card" data-idx="${idx}" data-category="${(c.category || '').trim()}">
+        <div class="cert-card-img">${imgArea}</div>
+        <div class="cert-card-overlay">
+          <div class="cert-view-pill"><i class="fas fa-expand-alt"></i> View</div>
+        </div>
+        ${c.issuer ? `<div class="cert-issuer-chip">${c.issuer}</div>` : ''}
+        <div class="cert-card-info">
+          <div class="cert-card-title">${c.title}</div>
+          <div class="cert-card-meta">${c.date || ''}</div>
+          ${verifyBtn}
+        </div>
       </div>`;
-  }).join('');
+  };
 
   el.innerHTML = `
     <div class="cert-viewer">
-      ${indHtml}
-      <div class="cert-pages">${pagesHtml}</div>
+      <div class="cert-cat-tabs">
+        ${categories.map((cat, i) =>
+          `<button class="cert-cat-tab${i === 0 ? ' active' : ''}" data-cat="${cat}">${cat}</button>`
+        ).join('')}
+      </div>
+      <div class="cert-gallery">
+        ${certs.map((c, i) => cardHtml(c, i)).join('')}
+      </div>
     </div>`;
 
-  // ── Page switching ──
-  const inds    = el.querySelectorAll('.cert-ind');
-  const pageEls = el.querySelectorAll('.cert-page');
-  let currentPage = 0;
+  // ── Tab filtering ──
+  const tabs    = el.querySelectorAll('.cert-cat-tab');
+  const cards   = el.querySelectorAll('.cert-card');
+  const gallery = el.querySelector('.cert-gallery');
 
-  function goToPage(pi) {
-    pageEls[currentPage].classList.remove('active');
-    inds[currentPage]?.classList.remove('active');
-    currentPage = pi;
-    pageEls[currentPage].classList.add('active');
-    inds[currentPage]?.classList.add('active');
+  function filterBy(cat) {
+    gallery.classList.add('filtering');
+    setTimeout(() => {
+      cards.forEach(card => {
+        card.style.display = (cat === 'All' || card.dataset.category === cat) ? '' : 'none';
+      });
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+      gallery.classList.remove('filtering');
+    }, 220);
   }
 
-  inds.forEach(ind => ind.addEventListener('click', () => goToPage(+ind.dataset.page)));
+  tabs.forEach(tab => tab.addEventListener('click', () => filterBy(tab.dataset.cat)));
 
   // ── Click tile → lightbox ──
-  el.querySelectorAll('.cert-card').forEach(card => {
+  cards.forEach(card => {
     card.addEventListener('click', e => {
       if (e.target.closest('a')) return;
       const c      = certs[+card.dataset.idx];

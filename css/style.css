@@ -964,20 +964,33 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ── Viewer wrapper ── */
 .cert-viewer { max-width: 1120px; margin: 0 auto; }
 
-/* ── Progress pill indicators ── */
-.cert-indicators {
-  display: flex; align-items: center; justify-content: center;
-  gap: 8px; margin-bottom: 40px;
+/* ── Category filter tabs ── */
+.cert-cat-tabs {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 10px; margin-bottom: 36px;
 }
-.cert-ind {
-  height: 4px; width: 28px; border-radius: 99px;
-  background: var(--border); border: none; padding: 0; cursor: pointer;
-  transition: width 0.38s var(--ease), background 0.38s var(--ease);
+.cert-cat-tab {
+  padding: 7px 20px; border-radius: 999px;
+  font-size: 0.82rem; font-weight: 600;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text-muted, #94a3b8);
+  cursor: pointer; transition: all 0.22s;
 }
-.cert-ind.active { width: 56px; background: linear-gradient(90deg, var(--primary), #a855f7); }
-.cert-ind:not(.active):hover { background: var(--border-glow); width: 38px; }
+.cert-cat-tab:hover {
+  border-color: var(--primary); color: var(--primary);
+  background: rgba(129,140,248,0.08);
+}
+.cert-cat-tab.active {
+  background: linear-gradient(135deg, var(--primary), #a855f7);
+  border-color: transparent; color: #fff;
+  box-shadow: 0 4px 14px rgba(129,140,248,0.35);
+}
 
-/* ── Pages ── */
+/* ── Gallery fade-in when switching tabs ── */
+.cert-gallery { transition: opacity 0.22s; }
+.cert-gallery.filtering { opacity: 0; }
+
+/* ── Pages (kept for backward compat, unused) ── */
 .cert-pages { position: relative; }
 .cert-page  { display: none; }
 .cert-page.active { display: block; animation: certPageIn 0.38s var(--ease); }
