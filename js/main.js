@@ -637,7 +637,9 @@ function initTypewriter(roles) {
 function renderHero(data) {
   const p = data.personal;
   setInner('hero-name', p.name);
-  setInner('hero-desc', p.bio);
+  // Show only the first sentence in the hero — full bio appears in the About section
+  const heroShortBio = (p.shortBio || (p.bio || '').replace(/\n/g, ' ').split(/\.\s+/)[0].trimEnd().replace(/\.?$/, '.'));
+  setInner('hero-desc', heroShortBio);
 
   // Update initials placeholder with actual initials
   const initials = (p.name || 'JC').split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
@@ -646,7 +648,7 @@ function renderHero(data) {
   const cvBtn = document.getElementById('hero-cv-btn');
   if (cvBtn && p.cvUrl) cvBtn.href = p.cvUrl;
   const liBtn = document.getElementById('hero-linkedin');
-  if (liBtn && p.linkedin) liBtn.href = p.linkedin;
+  if (liBtn && p.linkedin) liBtn.href = normalizeUrl(p.linkedin);
   const ghBtn = document.getElementById('hero-github');
   if (ghBtn && p.github) ghBtn.href = p.github;
   const emailBtn = document.getElementById('hero-email');
@@ -1022,7 +1024,7 @@ function renderContact(data) {
   // LinkedIn
   if (p.linkedin) {
     const liLink = document.getElementById('contact-linkedin');
-    if (liLink) liLink.href = p.linkedin;
+    if (liLink) liLink.href = normalizeUrl(p.linkedin);
   }
 
   // GitHub
@@ -1041,7 +1043,7 @@ function renderFooter(data) {
   const name = document.getElementById('footer-name');
   if (name) name.textContent = data.personal.name;
   const li = document.getElementById('footer-linkedin');
-  if (li && data.personal.linkedin) li.href = data.personal.linkedin;
+  if (li && data.personal.linkedin) li.href = normalizeUrl(data.personal.linkedin);
   const gh = document.getElementById('footer-github');
   if (gh && data.personal.github) gh.href = data.personal.github;
 }
@@ -1272,6 +1274,12 @@ function showToast(msg, type = 'info', duration = 3500) {
 function setInner(id, value) {
   const el = document.getElementById(id);
   if (el && value !== undefined && value !== null) el.innerHTML = value;
+}
+
+// Ensures a URL has a protocol prefix (adds https:// if missing)
+function normalizeUrl(url) {
+  if (!url) return url;
+  return /^https?:\/\//i.test(url) ? url : 'https://' + url;
 }
 
 function setAttr(id, attr, value) {
