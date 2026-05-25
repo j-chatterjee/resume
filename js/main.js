@@ -709,15 +709,16 @@ function renderAbout(data) {
   // Profile image in about section
   const aboutImg = document.getElementById('about-profile-img');
   const aboutPh  = document.getElementById('about-img-placeholder');
-  const profileSrc = p.profileImage || '';
-  if (profileSrc && aboutImg) {
-    aboutImg.src = profileSrc;
+  const aboutSrc = p.aboutImage || p.profileImage || '';
+  if (aboutSrc && aboutImg) {
+    aboutImg.src = aboutSrc;
     aboutImg.onload  = () => { aboutImg.style.display = 'block'; if (aboutPh) aboutPh.style.display = 'none'; };
     aboutImg.onerror = () => { aboutImg.style.display = 'none'; };
   }
 
   // Profile image in hero circle
   const heroImg = document.getElementById('hero-profile-img');
+  const profileSrc = p.profileImage || '';
   if (heroImg && profileSrc) {
     heroImg.src = profileSrc;
     heroImg.style.display = 'block';
