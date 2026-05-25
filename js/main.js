@@ -916,7 +916,7 @@ function renderCertificates(data) {
   ];
 
   // Collect unique categories in first-occurrence order
-  const categories = ['All'];
+  const categories = [];
   certs.forEach(c => {
     const cat = (c.category || '').trim();
     if (cat && !categories.includes(cat)) categories.push(cat);
@@ -959,11 +959,12 @@ function renderCertificates(data) {
 
   el.innerHTML = `
     <div class="cert-viewer">
+      ${categories.length ? `
       <div class="cert-cat-tabs">
-        ${categories.map((cat, i) =>
-          `<button class="cert-cat-tab${i === 0 ? ' active' : ''}" data-cat="${cat}">${cat}</button>`
+        ${categories.map(cat =>
+          `<button class="cert-cat-tab" data-cat="${cat}">${cat}</button>`
         ).join('')}
-      </div>
+      </div>` : ''}
       <div class="cert-gallery">
         ${certs.map((c, i) => cardHtml(c, i)).join('')}
       </div>
@@ -975,12 +976,18 @@ function renderCertificates(data) {
   const gallery = el.querySelector('.cert-gallery');
 
   function filterBy(cat) {
+    const isActive = [...tabs].find(t => t.dataset.cat === cat)?.classList.contains('active');
     gallery.classList.add('filtering');
     setTimeout(() => {
-      cards.forEach(card => {
-        card.style.display = (cat === 'All' || card.dataset.category === cat) ? '' : 'none';
-      });
-      tabs.forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+      if (isActive) {
+        cards.forEach(card => { card.style.display = ''; });
+        tabs.forEach(t => t.classList.remove('active'));
+      } else {
+        cards.forEach(card => {
+          card.style.display = card.dataset.category === cat ? '' : 'none';
+        });
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.cat === cat));
+      }
       gallery.classList.remove('filtering');
     }, 220);
   }
