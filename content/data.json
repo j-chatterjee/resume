@@ -557,110 +557,132 @@
       "title": "Terraform Associate",
       "issuer": "Hashicorp",
       "date": "Jan 2026",
+      "category": "Automation",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451013652_terraform-certificate.png"
+      "image": "images/certificates/1779451013652_terraform-certificate.png",
+      "_pendingImage": null
     },
     {
       "id": 1779390176268,
       "title": "Kubernetes",
       "issuer": "Inadev",
       "date": "",
+      "category": "DevOps",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451016345_k8s.jpg"
+      "image": "images/certificates/1779451016345_k8s.jpg",
+      "_pendingImage": null
     },
     {
       "id": 1779390233371,
       "title": "Associate Cloud Engineer",
       "issuer": "Google Cloud",
       "date": "",
+      "category": "Cloud",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451018575_gcp.jpg"
+      "image": "images/certificates/1779451018575_gcp.jpg",
+      "_pendingImage": null
     },
     {
       "id": 1779390263666,
       "title": "Hadoop",
       "issuer": "Inadev",
       "date": "",
+      "category": "Data Engineering",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451020706_hadoop.jpg"
+      "image": "images/certificates/1779451020706_hadoop.jpg",
+      "_pendingImage": null
     },
     {
       "id": 1779390293146,
       "title": "Effective Communication",
       "issuer": "Inadev",
       "date": "",
+      "category": "Soft Skill",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451022766_communication.jpg"
+      "image": "images/certificates/1779451022766_communication.jpg",
+      "_pendingImage": null
     },
     {
       "id": 1779390339098,
       "title": "DevOps & Kubernetes",
       "issuer": "Inadev",
       "date": "",
+      "category": "DevOps",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451024995_devops-cert.png"
+      "image": "images/certificates/1779451024995_devops-cert.png",
+      "_pendingImage": null
     },
     {
       "id": 1779390362674,
       "title": "BigQuery",
       "issuer": "Inadev",
       "date": "",
+      "category": "Data Engineering",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451027435_bigquery.jpg"
+      "image": "images/certificates/1779451027435_bigquery.jpg",
+      "_pendingImage": null
     },
     {
       "id": 1779393890112,
       "title": "Super Squad",
       "issuer": "Inadev",
       "date": "",
+      "category": "Recognition",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451106177_super-squad.png"
+      "image": "images/certificates/1779451106177_super-squad.png",
+      "_pendingImage": null
     },
     {
       "id": 1779393992720,
       "title": "GoLang",
       "issuer": "Inadev",
       "date": "",
+      "category": "Automation",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451108993_Golang.jpg"
+      "image": "images/certificates/1779451108993_Golang.jpg",
+      "_pendingImage": null
     },
     {
       "id": 1779394032728,
       "title": "DevOps",
       "issuer": "Inadev",
       "date": "",
+      "category": "Automation",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451110868_devops.jpg"
+      "image": "images/certificates/1779451110868_devops.jpg",
+      "_pendingImage": null
     },
     {
       "id": 1779394053088,
       "title": "Super Star",
       "issuer": "Inadev",
       "date": "",
+      "category": "Recognition",
       "credentialId": "",
       "credentialUrl": "",
       "description": "",
-      "image": "images/certificates/1779451112826_superstar.png"
+      "image": "images/certificates/1779451112826_superstar.png",
+      "_pendingImage": null
     }
   ],
   "contact": {
