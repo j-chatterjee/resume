@@ -683,6 +683,17 @@
       "description": "",
       "image": "images/certificates/1779451112826_superstar.png",
       "_pendingImage": null
+    },
+    {
+      "id": 1779744914996,
+      "title": "AI Workshop",
+      "issuer": "Be10x",
+      "date": "Feb 2026",
+      "category": "AI",
+      "credentialId": "",
+      "credentialUrl": "https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd09971039442",
+      "description": "",
+      "image": "images/certificates/1779744935635_Screenshot_20260526-030502_Chrome.jpg"
     }
   ],
   "contact": {
