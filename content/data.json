@@ -151,6 +151,10 @@
         {
           "name": "Confluence",
           "level": 100
+        },
+        {
+          "name": "MS Office",
+          "level": 85
         }
       ]
     },
@@ -199,6 +203,10 @@
         {
           "name": "Tenable Nessus",
           "level": 70
+        },
+        {
+          "name": "Microsoft Defender",
+          "level": 80
         }
       ]
     },
@@ -251,6 +259,28 @@
         {
           "name": "Perplexity",
           "level": 70
+        }
+      ]
+    },
+    {
+      "category": "Web Server & Framework",
+      "icon": "fas fa-code",
+      "items": [
+        {
+          "name": "Apache",
+          "level": 90
+        },
+        {
+          "name": "Nginx",
+          "level": 85
+        },
+        {
+          "name": "PHP",
+          "level": 70
+        },
+        {
+          "name": "WordPress",
+          "level": 85
         }
       ]
     }
