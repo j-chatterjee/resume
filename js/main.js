@@ -1191,16 +1191,37 @@ function closeLightbox() {
 function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    const name    = form.querySelector('[name="name"]')?.value || '';
-    const email   = form.querySelector('[name="email"]')?.value || '';
-    const subject = form.querySelector('[name="subject"]')?.value || 'Portfolio Contact';
-    const message = form.querySelector('[name="message"]')?.value || '';
-    const to = portfolioData?.contact?.email || '';
-    const mailto = `mailto:${to}?subject=${encodeURIComponent(subject + ' - from ' + name)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
-    window.location.href = mailto;
-    showToast('Opening your email client…', 'success');
+    const name    = form.querySelector('[name="name"]')?.value.trim() || '';
+    const email   = form.querySelector('[name="email"]')?.value.trim() || '';
+    const subject = form.querySelector('[name="subject"]')?.value.trim() || 'Portfolio Contact';
+    const message = form.querySelector('[name="message"]')?.value.trim() || '';
+    if (!name || !email || !message) { showToast('Please fill in all required fields.', 'error'); return; }
+    const submitBtn = form.querySelector('[type="submit"]');
+    const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…'; }
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: '3d7ebfff-b6de-4155-bee2-a00693605dec',
+          name, email, subject, message
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('Message sent successfully!', 'success');
+        form.reset();
+      } else {
+        showToast(data.message || 'Failed to send message. Please try again.', 'error');
+      }
+    } catch (err) {
+      showToast('Network error. Please try again later.', 'error');
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalBtnHtml; }
+    }
   });
 }
 
@@ -1234,7 +1255,7 @@ function initHireMeModal() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) close(); });
 
   if (form) {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const btn     = form.querySelector('.hire-modal-submit');
       const name    = form.querySelector('[name="name"]')?.value.trim() || '';
@@ -1242,16 +1263,33 @@ function initHireMeModal() {
       const subject = form.querySelector('[name="subject"]')?.value.trim() || 'Hire Me';
       const message = form.querySelector('[name="message"]')?.value.trim() || '';
       if (!name || !email || !message) { showToast('Please fill in all required fields.', 'error'); return; }
-      const to     = portfolioData?.contact?.email || portfolioData?.personal?.email || '';
-      const mailto = `mailto:${to}?subject=${encodeURIComponent(subject + ' — ' + name)}&body=${encodeURIComponent('From: ' + name + ' <' + email + '>\n\n' + message)}`;
-      if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-check"></i> Sent!'; }
-      window.location.href = mailto;
-      showToast('Opening your email client…', 'success');
-      setTimeout(() => {
-        close();
-        form.reset();
+      if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…'; }
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: '3d7ebfff-b6de-4155-bee2-a00693605dec',
+            name, email, subject, message
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          if (btn) { btn.innerHTML = '<i class="fas fa-check"></i> Sent!'; }
+          showToast('Message sent successfully!', 'success');
+          setTimeout(() => {
+            close();
+            form.reset();
+            if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; }
+          }, 1500);
+        } else {
+          showToast(data.message || 'Failed to send message. Please try again.', 'error');
+          if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; }
+        }
+      } catch (err) {
+        showToast('Network error. Please try again later.', 'error');
         if (btn) { btn.disabled = false; btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; }
-      }, 1500);
+      }
     });
   }
 }
