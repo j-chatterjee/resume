@@ -47,6 +47,11 @@
       "label": "Technology",
       "value": "25+",
       "icon": "fas fa-code"
+    },
+    {
+      "label": "Product",
+      "value": "1",
+      "icon": "fas fa-star"
     }
   ],
   "skills": [
@@ -447,6 +452,24 @@
     }
   ],
   "projects": [
+    {
+      "id": 1780691597031,
+      "title": "OweMates: Seamless Expense Sharing",
+      "category": "Personal",
+      "description": "The Problem: Tracking shared expenses for trips, apartments, or group dinners often leads to messy spreadsheets, awkward conversations, and complex \"who owes who\" math.\n\nThe Solution: OweMates is a centralized expense-sharing application that simplifies group finances. Users can easily create groups, log shared expenses, and instantly see a simplified breakdown of balances. By optimizing the debt settlement algorithm, OweMates minimizes the number of transactions needed to settle up.",
+      "details": "",
+      "highlights": [
+        "Group creation and management",
+        "Custom expense splitting (equal, exact amounts, percentages)",
+        "Activity dashboard with real-time balance updates",
+        "Debt simplification algorithm to minimize total transactions"
+      ],
+      "technologies": [],
+      "github": "",
+      "demo": "https://owemates.web.app/",
+      "featured": true,
+      "image": ""
+    },
     {
       "id": 1779389569697,
       "title": "Diamond & Gem Development Corporation Limited (DGDC eCustodian) Responsibilities  Create pipeline/build plan for all environment. 24X7 monitoring of application. Deploy new releases and resolving",
