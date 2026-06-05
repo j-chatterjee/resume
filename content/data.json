@@ -456,8 +456,8 @@
       "id": 1780691597031,
       "title": "OweMates: Seamless Expense Sharing",
       "category": "Personal",
-      "description": "The Problem: Tracking shared expenses for trips, apartments, or group dinners often leads to messy spreadsheets, awkward conversations, and complex \"who owes who\" math.\n\nThe Solution: OweMates is a centralized expense-sharing application that simplifies group finances. Users can easily create groups, log shared expenses, and instantly see a simplified breakdown of balances. By optimizing the debt settlement algorithm, OweMates minimizes the number of transactions needed to settle up.",
-      "details": "",
+      "description": "The Problem: Tracking shared expenses for trips, apartments, or group dinners often leads to messy spreadsheets, awkward conversations, and complex \"who owes who\" math.",
+      "details": "The Solution: OweMates is a centralized expense-sharing application that simplifies group finances. Users can easily create groups, log shared expenses, and instantly see a simplified breakdown of balances. By optimizing the debt settlement algorithm, OweMates minimizes the number of transactions needed to settle up.",
       "highlights": [
         "Group creation and management",
         "Custom expense splitting (equal, exact amounts, percentages)",
