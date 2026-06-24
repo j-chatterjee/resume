@@ -747,6 +747,17 @@
       "credentialUrl": "https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd09971039442",
       "description": "",
       "image": "images/certificates/1779744935635_Screenshot_20260526-030502_Chrome.jpg"
+    },
+    {
+      "id": 1782314173386,
+      "title": "AWS Cloud Deployment",
+      "issuer": "GUVI HCL",
+      "date": "Jun 2026",
+      "category": "Cloud",
+      "credentialId": "kcVU1A16d828832B37",
+      "credentialUrl": "https://www.guvi.in/share-certificate/kcVU1A16d828832B37",
+      "description": "This workshop provided valuable insights into deployment strategies, practical implementation patterns, and real-world AWS use cases—further reinforcing my approach to designing and managing scalable, resilient cloud solutions.",
+      "image": "images/certificates/1782314197137_HCL GUVI Certification - kcVU1A16d828832B37.png"
     }
   ],
   "contact": {
