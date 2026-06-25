@@ -758,6 +758,17 @@
       "credentialUrl": "https://www.guvi.in/share-certificate/kcVU1A16d828832B37",
       "description": "This workshop provided valuable insights into deployment strategies, practical implementation patterns, and real-world AWS use cases—further reinforcing my approach to designing and managing scalable, resilient cloud solutions.",
       "image": "images/certificates/1782314451720_HCL GUVI Certification - kcVU1A16d828832B37.png"
+    },
+    {
+      "id": 1782409114069,
+      "title": "AI Engineering",
+      "issuer": "Scaler",
+      "date": "June 2026",
+      "category": "Artificial Intelligence",
+      "credentialId": "",
+      "credentialUrl": "",
+      "description": "This session provided valuable insights into:\n✅ Navigating AI career opportunities\n✅ Skills required to break into top AI-driven companies\n✅ Real-world expectations from AI roles\nAs a Senior Cloud Engineer, it was really interesting to explore how cloud, data, and AI intersect, and how I can continue building expertise in this rapidly evolving space.",
+      "image": "images/certificates/1782409116413_487a4122706985e1fa2b56c3d34f79fa5f7b97558dd837f15c68b64ed44cb9cd.png"
     }
   ],
   "contact": {
