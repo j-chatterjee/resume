@@ -770,6 +770,17 @@
       "description": "This session provided valuable insights into:\n✅ Navigating AI career opportunities\n✅ Skills required to break into top AI-driven companies\n✅ Real-world expectations from AI roles\nAs a Senior Cloud Engineer, it was really interesting to explore how cloud, data, and AI intersect, and how I can continue building expertise in this rapidly evolving space.",
       "image": "images/certificates/1782409116413_487a4122706985e1fa2b56c3d34f79fa5f7b97558dd837f15c68b64ed44cb9cd.png",
       "_pendingImage": null
+    },
+    {
+      "id": 1783499074701,
+      "title": "Building Self-Healing Microservices with Kubernetes and Service Mesh",
+      "issuer": "Scaler",
+      "date": "July 2026",
+      "category": "DevOps",
+      "credentialId": "",
+      "credentialUrl": "https://moonshot.scaler.com/s/sl/UCFXN5B9ss",
+      "description": "",
+      "image": "images/certificates/1783499077517_92d5e60a6ac332fa755b712f80f4b542e80388f8c15058f1c47c4bd4ddc2da8d.png"
     }
   ],
   "contact": {
